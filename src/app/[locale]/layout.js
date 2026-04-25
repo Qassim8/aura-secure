@@ -1,5 +1,9 @@
 import { Almarai, Comfortaa } from "next/font/google";
 import "./globals.css";
+import { routing } from "@/i18n/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const exo2 = Comfortaa({
   variable: "--font-exo2",
@@ -118,7 +122,12 @@ export default async function RootLayout({ children, params }) {
       data-locale={locale}
       className={`${fontVariables} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          {children} <Footer />
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
