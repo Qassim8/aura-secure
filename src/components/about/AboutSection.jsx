@@ -129,7 +129,7 @@ export default function AboutSection({ bg }) {
             </div>
 
             <div
-              className={`absolute bottom-10 md:bottom-0 right-0 w-3/4 md:w-1/2 h-1/2 overflow-hidden border-20 border-${bg} z-20 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2`}
+              className={`absolute bottom-10 md:bottom-0 right-0 w-3/4 md:w-1/2 h-1/2 overflow-hidden border-20 border-${bg}! z-20 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2`}
             >
               <div className="relative w-full h-full overflow-hidden">
                 <Image

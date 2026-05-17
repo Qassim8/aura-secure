@@ -4,19 +4,16 @@ import { useLocale } from "next-intl";
 import Link from "next/link";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-export default function PageHeader({ title, pageName }) {
+export default function PageHeader({ title }) {
   const locale = useLocale();
   const isRtl = locale === "ar";
 
   return (
     <section className="relative bg-(--primary-color) py-16 md:py-20 overflow-hidden text-right select-none">
       {/* شبكة ديكورية هندسية خافتة جداً في الخلفية تعزز الطابع الأمني الرقمي */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none"></div>
 
-      {/* لمسة إضاءة ناعمة باللون الأحمر المعتمد في الزاوية */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-72 h-72 bg-(--main-color)/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="container relative z-10 flex flex-col justify-center items-center gap-4">
         {/* 1. عنوان الصفحة الرئيسي الضخم والفخم */}
         <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight">
           {title}

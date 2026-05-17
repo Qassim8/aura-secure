@@ -3,25 +3,30 @@ import React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Breadcrumb from "@/components/base/Breadcrumb";
 import AboutSection from "@/components/about/AboutSection";
-import VisionMission from "@/components/about/VisionMission";
+import VisionMissionSection from "@/components/about/VisionMission";
+import StatsSection from "@/components/shared/StatsSection";
 import PartnersSection from "@/components/shared/Partners";
 
 const AboutPage = () => {
-  const locale = useLocale();
   const t = useTranslations("About");
 
-  const items = [
-    { label: t("section_tag"), href: `/${locale}` },
-    { label: t("section_title"), href: `/${locale}/about` },
-  ];
-
   return (
-    <div>
+    <main className="bg-[#fcfcfc]">
+      {/* 1. رأس الصفحة والمسار */}
       <Breadcrumb title={t("section_tag")} pageName={t("section_title")} />
-      <AboutSection bg="bg-white" />
-      <VisionMission bg="bg-gray-50" />
-      <PartnersSection bg="bg-transparent" />
-    </div>
+
+      {/* 2. من نحن والنبذة التعريفية (خلفية بيضاء ناصعة) */}
+      <AboutSection bg="white" />
+
+      {/* 3. الرؤية والرسالة بالكتل الهندسية المتقاطعة (خلفية رمادية ناعمة للتبيان) */}
+      <VisionMissionSection bg="bg-(--second-color)" />
+
+      {/* 4. الأرقام والإحصائيات الفخمة (خلفية الأزرق الداكن الكامل - نقلة بصرية قوية) */}
+      <StatsSection bg="bg-white" />
+
+      {/* 5. الاعتمادات والشركاء كختام مبني على الثقة المطلقة */}
+      <PartnersSection bg="bg-(--second-color)" />
+    </main>
   );
 };
 
