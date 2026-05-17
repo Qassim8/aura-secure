@@ -1,13 +1,16 @@
-import { Almarai, Comfortaa } from "next/font/google";
+import { Almarai, Open_Sans, Roboto, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { routing } from "@/i18n/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/base/Navbar";
+import Footer from "@/components/base/Footer";
+import { notFound } from "next/navigation";
 
-const exo2 = Comfortaa({
+const exo2 = Ubuntu({
   variable: "--font-exo2",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  display: "swap",
 });
 
 const almarai = Almarai({

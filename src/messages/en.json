@@ -1,4 +1,52 @@
 {
-  "Navbar": {},
-  "Home": {}
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "works": "Portfolio",
+    "contact": "Contact Us",
+    "arabic": "Arabic",
+    "english": "English"
+  },
+  "Hero": {
+    "badge": "Certified by Saudi Civil Defense",
+
+    "title1": "Reliable Protection",
+    "subTitle1": "We deliver advanced fire protection and alarm systems designed to meet the highest international standards, ensuring safety for people and property while minimizing risks across all types of facilities.",
+
+    "title2": "Integrated Solutions",
+    "subTitle2": "Our services cover design, supply, installation, and maintenance of safety systems and surveillance solutions, handled by a specialized team committed to top-quality execution.",
+
+    "title3": "Long-Term Partnership",
+    "subTitle3": "We build lasting relationships with our clients through reliable solutions, continuous technical support, and a strong commitment to quality—helping ensure business continuity and reduce long-term costs.",
+
+    "btn1": "Secure Your Facility",
+    "btn2": "View Our Projects"
+  },
+  "Home": {},
+  "About": {
+    "section_tag": "About",
+    "section_title": "Get to know Aura Secure",
+    "history_title": "Our story and history",
+    "history_title_highlight": "Aura Secure",
+    "history_p1": "Aura Secure is your trusted partner for achieving the highest standards of security, safety, and fire protection. We believe protecting people and property is essential for business continuity and growth.",
+    "history_p2": "Founded by a team of industry experts with over 20 years of cumulative experience, we provide comprehensive solutions from design to operation and maintenance.",
+    "history_p3": "We have executed major projects across service and industrial sectors, implementing full fire protection and alarm systems including pumps, sprinklers, and advanced early-warning systems.",
+    "exp_number": "+20",
+    "exp_text": "Years of combined experience",
+    "why_title": "Why choose",
+    "why_title_highlight": "Aura Secure?",
+    "feature_1_title": "Official certifications & compliance",
+    "feature_1_desc": "We are officially certified by Saudi Civil Defense; our systems conform to UL, FM, SBC and NFPA standards.",
+    "feature_2_title": "Strategic partnerships & quality",
+    "feature_2_desc": "We partner with leading manufacturers and suppliers approved by SASO to ensure top-quality equipment.",
+    "feature_3_title": "Value for investment",
+    "feature_3_desc": "We build long-term relationships by offering high-quality execution and competitive pricing, making safety a smart investment.",
+    "btn_read_more": "More",
+    "read_less": "Less",
+    "vision_title": "Our Vision",
+    "vision_text": "To be a leading national provider of trusted safety and fire protection solutions, recognized for reliability, technical excellence, and continuous innovation.",
+    "mission_title": "Our Mission",
+    "mission_text": "Deliver integrated, code-compliant safety systems with professional engineering, timely execution, and ongoing support to protect people and assets."
+  }
 }

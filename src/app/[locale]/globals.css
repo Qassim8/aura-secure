@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --main-color: #e61a2b;
+  --title-color: #3a2d2d;
+  --primary-color: #080854;
+  --alt-color: #717171;
+  --second-color: #fbfafa;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[data-locale="en"] {
+  --font-sans: var(--font-exo2);
 }
-
+html[data-locale="ar"] {
+  --font-sans: var(--font-almarai);
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  @apply mx-auto px-4 md:px-0;
+}
+
+@theme {
+  /* --- الأنيميشن السابقة الخاصة بك --- */
+  @keyframes color-fade {
+    0%,
+    100% {
+      color: rgba(255, 255, 255);
+    }
+    50% {
+      color: #fbbf24;
+    }
+  }
+  --animate-color-fade: color-fade 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  --animate-glow-pulse: glow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  /* --- أنيميشن الـ Hero الجديدة (Scanner & X-Ray) --- */
+
+  @keyframes marquee-forward {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  --animate-marquee-forward: marquee-forward 30s linear infinite;
+
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+
+  /* 1. حركة خط الليزر الأحمر */
+  @keyframes scanner-line {
+    0% {
+      left: -5%;
+      opacity: 0;
+    }
+    5%,
+    95% {
+      opacity: 1;
+    }
+    100% {
+      left: 105%;
+      opacity: 0;
+    }
+  }
+  --animate-scanner: scanner-line 6s linear;
+
+  /* 2. حركة كشف الأنظمة (X-Ray Reveal) */
+  /* نستخدم الـ clip-path لمحاكاة المسح الضوئي */
+  @keyframes reveal-systems {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    50% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  --animate-reveal: reveal-systems 6s linear infinite;
+
+  /* 3. حركة الوميض التحذيري (للأيقونات) */
+  @keyframes alert-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 2px var(--main-color));
+    }
+    50% {
+      opacity: 0.5;
+      filter: drop-shadow(0 0 15px var(--main-color));
+    }
+  }
+  --animate-alert: alert-pulse 2s ease-in-out infinite;
+
+  /* 4. دوران التروس أو المراوح التقنية بشكل بطيء */
+  @keyframes tech-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  --animate-spin-slow: tech-spin 12s linear infinite;
+}
+
+/* Swiper Vertical Pagination Customization */
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  right: 20px !important; /* للغة الإنجليزية */
+  left: auto;
+}
+
+[dir="rtl"] .swiper-pagination-vertical.swiper-pagination-bullets {
+  left: 20px !important; /* للغة العربية */
+  right: auto;
+}
+
+.swiper-pagination-bullet {
+  opacity: 0.3 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  height: 60px !important; /* طول الخط عند التفعيل */
 }
