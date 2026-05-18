@@ -68,7 +68,10 @@
     "S5_Desc": "Engineering drawings, evacuation maps, and safety equipment layout.",
     "CTA_Title": "Need a technical inspection?",
     "CTA_Desc": "We reach you anywhere in the Kingdom to ensure the highest safety standards.",
-    "CTA_Btn": "Book your inspection"
+    "CTA_Btn": "Book your inspection",
+    "map_section_title": "Protect your facility and safeguard your investment today",
+    "map_section_desc": "Let Aura-Secure engineers in Riyadh and across the Kingdom provide certified and customized engineering solutions for your building's security and safety requirements",
+    "map_section_btn": "Contact our engineers!"
   },
   "Stats": {
     "cta_title": "Let's build something",
