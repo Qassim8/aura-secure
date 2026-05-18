@@ -42,7 +42,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative h-screen w-full bg-[#1a1a1a]">
+    <section className="relative h-screen w-full">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         loop={true}
@@ -57,34 +57,32 @@ export default function HeroSection() {
         className="h-full w-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="relative bg-[#1a1a1a] h-full">
+          <SwiperSlide key={slide.id} className="relative h-full">
             {/* Background */}
             <div className="absolute inset-0 z-0">
               <div
-                className="absolute inset-0 bg-cover bg-center grayscale-70 s"
+                className="absolute inset-0 bg-cover bg-center grayscale-90"
                 style={{ backgroundImage: `url('${slide.image}')` }}
               />
               <div className="absolute inset-0 bg-(--primary-color)/60" />
             </div>
             {/* Content */}
-            <div
-              className={`container mx-auto h-full relative z-20 text-white ${locale === "ar" ? "text-right" : "text-left"}`}
-            >
-              <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start h-full md:w-1/2">
+            <div className={`container h-full relative z-20 text-white `}>
+              <div className="flex flex-col justify-center items-start text-start h-full md:w-1/2">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 bg-(--main-color) w-fit px-4 py-2 mb-6 shadow-lg shadow-(--main-color)/20">
-                  <MdVerified className="text-white text-sm" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 bg-(--main-color) w-fit px-2 py-1 md:px-4 md:py-2 mb-5 shadow-lg shadow-(--main-color)/20">
+                  <MdVerified className="text-white text-xs md:text-sm" />
+                  <span className="text-[10px] font-black uppercase md:tracking-widest">
                     {t("badge")}
                   </span>
                 </div>
 
                 {/* Main Title */}
-                <h1 className="text-3xl md:text-6xl font-semibold md:font-black leading-tight tracking-tighter uppercase">
+                <h1 className="text-2xl md:text-6xl font-semibold md:font-black leading-tight tracking-tighter uppercase">
                   {slide.title}
                 </h1>
 
-                <p className="text-sm md:text-lg my-5 text-(--main-color) drop-shadow-[0_0_20px_rgba(230,26,43,0.5)]">
+                <p className="text-xs md:text-lg my-5 text-(--main-color) drop-shadow-[0_0_10px_rgba(230,26,43,0.8)]">
                   {slide.subTitle}
                 </p>
 
@@ -93,14 +91,14 @@ export default function HeroSection() {
                   <a
                     href="/files/ORA-SECURE-PROFILE.pdf"
                     download="ORA-SECURE-PROFILE.pdf"
-                    className="text-[12px] md:text-sm bg-(--main-color) hover:bg-white hover:text-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all duration-500 flex items-center gap-2"
+                    className="text-xs md:text-sm bg-(--main-color) hover:bg-white hover:text-(--main-color) text-white px-2 md:px-10 py-2 md:py-4 md:font-black transition-all duration-500 flex items-center gap-1 md:gap-2"
                   >
                     {t("btn1")}
                     <MdFileDownload className="text-base" />
                   </a>
                   <Link
                     href={`/${locale}/projects`}
-                    className="text-[12px] md:text-sm bg-transparent border border-white/20 hover:border-(--main-color) hover:bg-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all"
+                    className="text-xs md:text-sm bg-transparent border border-white/20 hover:border-(--main-color) hover:bg-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all"
                   >
                     {t("btn2")}
                   </Link>

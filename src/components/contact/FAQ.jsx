@@ -26,7 +26,7 @@ const FAQ = ({ t }) => {
           >
             <button
               onClick={() => setActiveFaq(isOpen ? null : idx)}
-              className="w-full p-5 flex items-center justify-between gap-4 text-right cursor-pointer select-none"
+              className="w-full p-5 flex items-center justify-between gap-4 text-start cursor-pointer select-none"
             >
               <span
                 className={`text-sm md:text-base font-black transition-colors duration-300 ${
@@ -49,7 +49,7 @@ const FAQ = ({ t }) => {
                   : "max-h-0"
               }`}
             >
-              <p className="p-5 text-xs md:text-sm text-(--alt-color)/80 font-medium leading-relaxed">
+              <p className="text-start p-3 md:p-5 text-xs md:text-sm text-(--alt-color)/80 font-medium leading-relaxed">
                 {faq.answer}
               </p>
             </div>

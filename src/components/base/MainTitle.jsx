@@ -6,7 +6,9 @@ const MainTitle = ({ title, subtitle, pos }) => {
   const mainText = words.join(" ");
 
   return (
-    <div className={`relative mb-10 flex flex-col items-${pos} group`}>
+    <div
+      className={`relative mb-10 flex flex-col items-${pos} text-${pos} group`}
+    >
       <div className="flex items-center gap-3 mb-3">
         <span className="w-8 h-0.5 bg-(--main-color)/50"></span>
         <span className="text-(--main-color) text-xs font-black tracking-[0.3em] uppercase">

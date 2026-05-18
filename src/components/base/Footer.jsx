@@ -24,7 +24,7 @@ export default function Footer() {
     >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
-          <div className="lg:col-span-4 space-y-6 text-right">
+          <div className="lg:col-span-4 space-y-6 text-start">
             <h2 className="text-3xl font-black tracking-tighter">
               ORA<span className="text-(--main-color)">SECURE</span>
             </h2>
@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-2 text-right">
+          <div className="md:col-span-2 text-start">
             <h4 className="md:text-lg font-black uppercase tracking-[3px] mb-6 border-b border-(--main-color) pb-2 inline-block text-white">
               {t("Footer_Links")}
             </h4>
@@ -72,7 +72,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3 text-right">
+          <div className="md:col-span-3 text-start">
             <h4 className="md:text-lg font-black uppercase tracking-[3px] mb-6 border-b border-(--main-color) pb-2 inline-block text-white">
               {t("Footer_Services")}
             </h4>

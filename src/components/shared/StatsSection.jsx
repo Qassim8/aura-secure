@@ -69,7 +69,7 @@ export default function StatsSection({ bg }) {
         <div
           className={`border ${bg === "bg-white" ? "border-gray-100" : "border-gray-50/10"} p-5 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}
         >
-          <div className="md:col-span-5 space-y-4 text-right">
+          <div className="md:col-span-5 space-y-4 text-center md:text-start">
             <h2
               className={`text-2xl md:text-4xl font-black text-${bg === "bg-white" ? "(--primary-color)" : "white"} leading-tight tracking-tight`}
             >
@@ -83,7 +83,7 @@ export default function StatsSection({ bg }) {
             </p>
           </div>
 
-          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 relative">
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-3 md:gap-x-8 gap-y-5 md:gap-y-12 relative">
             <div
               className={`hidden sm:block absolute top-0 bottom-0 left-1/2 w-px ${bg === "bg-white" ? "bg-gray-200" : "bg-gray-50/10"} -translate-x-1/2`}
             ></div>
@@ -97,7 +97,7 @@ export default function StatsSection({ bg }) {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="flex flex-col md:flex-row md:justify-center items-center gap-2 md:gap-5 group p-2 text-center"
+                className="flex flex-col md:flex-row md:justify-center items-center md:gap-5 group p-2 text-center"
               >
                 <div className="p-2 text-2xl md:text-4xl text-gray-500 group-hover:text-(--main-color) transition-colors duration-300 shrink-0">
                   {stat.icon}

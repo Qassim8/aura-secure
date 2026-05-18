@@ -86,9 +86,12 @@ export default function ServicesSection({ bg }) {
               </p>
             </div>
 
-            <button className="relative z-10 w-full md:w-auto px-6 py-3.5 bg-(--main-color) text-white font-black text-xs shadow-xl hover:bg-white hover:text-(--primary-color) transition-all duration-300 flex items-center justify-center gap-3 group/btn">
+            <a
+              href="#contact"
+              className="relative z-10 w-full md:w-auto px-6 py-3.5 bg-(--main-color) text-white font-black text-xs shadow-xl hover:bg-white hover:text-(--primary-color) transition-all duration-300 flex items-center justify-center gap-3 group/btn"
+            >
               <span>{t("CTA_Btn")}</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

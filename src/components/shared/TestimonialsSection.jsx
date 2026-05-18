@@ -88,7 +88,7 @@ export default function TestimonialsSection({ bg }) {
                       ))}
                     </div>
 
-                    <p className="text-lg font-bold text-(--title-color) leading-relaxed mb-10 italic">
+                    <p className="text-base md:text-lg font-bold text-(--title-color) leading-relaxed mb-10 italic">
                       &quot;{item.text}&quot;
                     </p>
 
@@ -129,7 +129,7 @@ export default function TestimonialsSection({ bg }) {
               </button>
             </div>
 
-            <div className="custom-pag w-auto! flex gap-3"></div>
+            <div className="custom-pag w-auto! flex gap-1 md:gap-3"></div>
           </div>
         </div>
       </div>
@@ -148,6 +148,14 @@ export default function TestimonialsSection({ bg }) {
           height: 4px !important;
           background: var(--main-color) !important;
           opacity: 1;
+        }
+        @media (max-width: 767px) {
+          .custom-pag .swiper-pagination-bullet {
+            width: 15px;
+          }
+          .custom-pag .swiper-pagination-bullet-active {
+            width: 20px;
+          }
         }
       `}</style>
     </section>

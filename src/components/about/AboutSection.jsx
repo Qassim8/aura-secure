@@ -27,11 +27,11 @@ export default function AboutSection({ bg }) {
               />
             </div>
 
-            <div className="absolute -bottom-6 inset-s-0 z-30 bg-(--primary-color) text-white p-3 shadow-2xl border-b-4 border-(--main-color) flex flex-col items-center justify-center min-w-32 transition-transform duration-500 group-hover:scale-105 select-none">
+            <div className="absolute -bottom-6 inset-s-0 z-30 bg-(--primary-color) text-white p-3 shadow-2xl border-b-4 border-(--main-color) flex flex-col items-center justify-center md:min-w-32 transition-transform duration-500 group-hover:scale-105 select-none">
               <span className="text-2xl md:text-5xl font-black text-(--main-color) leading-none tracking-tighter">
                 {t("exp_number")}
               </span>
-              <span className="text-[10px] font-black uppercase tracking-[2px] text-gray-200 text-center mt-2 leading-tight">
+              <span className="text-[10px] md:font-black uppercase tracking-[2px] text-gray-200 text-center mt-2 md:leading-tight">
                 {t("exp_text")}
               </span>
             </div>
@@ -67,7 +67,7 @@ export default function AboutSection({ bg }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-15 items-center">
-          <div className="space-y-6 text-right order-2 md:order-1">
+          <div className="space-y-6 text-start order-2 md:order-1">
             <h3 className="text-2xl md:text-4xl font-black text-(--primary-color) tracking-tight">
               {t("why_title")}{" "}
               <span className="text-(--main-color)">
