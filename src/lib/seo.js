@@ -152,6 +152,147 @@ export function generatePageMetadata(
   };
 }
 
+// Service-specific metadata generator
+export function generateServiceMetadata(
+  serviceId,
+  locale = "ar",
+  siteUrl = "https://orasecure.com",
+) {
+  const servicesMeta = {
+    en: {
+      "01": {
+        title: "Fire Alarm Systems — Aura Secure",
+        description:
+          "Design, supply and installation of advanced fire alarm systems compliant with NFPA and SBC standards.",
+        keywords: [
+          "fire alarm systems",
+          "addressable fire alarm",
+          "fire detection",
+          "smoke detectors",
+          "aura secure",
+        ],
+      },
+      "02": {
+        title: "Fire Fighting Systems — Aura Secure",
+        description:
+          "Water, foam and gas-based fire suppression system design and implementation for industrial and commercial sites.",
+        keywords: [
+          "fire fighting systems",
+          "sprinklers",
+          "FM200",
+          "fire pumps",
+          "suppression systems",
+        ],
+      },
+      "03": {
+        title: "Maintenance Contracts — Aura Secure",
+        description:
+          "Preventive and corrective maintenance contracts to keep life‑safety systems operational and compliant.",
+        keywords: [
+          "maintenance contracts",
+          "fire system maintenance",
+          "preventive maintenance",
+          "system servicing",
+        ],
+      },
+      "04": {
+        title: "Surveillance & Security — Aura Secure",
+        description:
+          "CCTV, access control and integrated security solutions to monitor and protect your facilities.",
+        keywords: [
+          "CCTV installation",
+          "surveillance systems",
+          "access control",
+          "security solutions",
+        ],
+      },
+      "05": {
+        title: "Safety Plans & Engineering — Aura Secure",
+        description:
+          "Certified safety plans, evacuation maps and engineering drawings aligned with Saudi codes.",
+        keywords: [
+          "safety plans",
+          "evacuation maps",
+          "safety engineering",
+          "fire safety drawings",
+        ],
+      },
+    },
+    ar: {
+      "01": {
+        title: "أنظمة إنذار الحريق — أورا سيكيور",
+        description:
+          "تصميم وتوريد وتركيب أنظمة إنذار الحريق المتقدمة المتوافقة مع معايير NFPA والكود السعودي.",
+        keywords: [
+          "أنظمة إنذار الحريق",
+          "كاشفات الدخان",
+          "الإنذار العنوني",
+          "أورا سيكيور",
+        ],
+      },
+      "02": {
+        title: "أنظمة إطفاء الحريق — أورا سيكيور",
+        description:
+          "تنفيذ أنظمة الإطفاء المائية والرغوية والغازية للمواقع الصناعية والتجارية.",
+        keywords: ["أنظمة إطفاء", "رشاشات الحريق", "FM200", "مضخات الحريق"],
+      },
+      "03": {
+        title: "عقود الصيانة — أورا سيكيور",
+        description:
+          "عقود صيانة وقائية وعلاجية لضمان جاهزية وسلامة أنظمة الحماية من الحريق.",
+        keywords: ["عقود صيانة", "صيانة أنظمة الحريق", "صيانة دورية"],
+      },
+      "04": {
+        title: "المراقبة والأمن — أورا سيكيور",
+        description:
+          "حلول كاميرات المراقبة وأنظمة التحكم بالدخول لحماية المنشآت ومراقبتها.",
+        keywords: ["كاميرات المراقبة", "أنظمة أمن", "تحكم بالدخول"],
+      },
+      "05": {
+        title: "مخططات السلامة والهندسة — أورا سيكيور",
+        description:
+          "مخططات سلامة معتمدة وخرائط الهروب وتصاميم هندسية مطابقة للاشتراطات.",
+        keywords: ["مخططات السلامة", "خرائط الهروب", "هندسة السلامة"],
+      },
+    },
+  };
+
+  const localeMeta = servicesMeta[locale] || servicesMeta.en;
+  const meta = localeMeta[serviceId] || {
+    title: `Service — Aura Secure`,
+    description: `Details about our services and solutions provided by Aura Secure.`,
+    keywords: ["aura secure", "safety services", "fire protection"],
+  };
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    robots: "index, follow",
+    openGraph: {
+      type: "article",
+      locale: locale === "ar" ? "ar_SA" : "en_US",
+      url: `${siteUrl}/${locale}/services/${serviceId}`,
+      title: meta.title,
+      description: meta.description,
+      image: {
+        url: `${siteUrl}/og-service-${serviceId}.png`,
+        width: 1200,
+        height: 630,
+        alt: meta.title,
+      },
+      siteName: "Aura Secure",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      image: `${siteUrl}/og-service-${serviceId}.png`,
+      creator: "@orasecure",
+    },
+  };
+}
+
 // Structured data for FAQ schema
 export const faqSchema = {
   en: [

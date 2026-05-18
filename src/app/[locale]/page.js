@@ -6,6 +6,7 @@ import ServicesSection from "@/components/services/ServicesSection";
 import PartnersSection from "@/components/shared/Partners";
 import StatsSection from "@/components/shared/StatsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import { generatePageMetadata } from "@/lib/seo";
 
 export default function Home() {
   return (
@@ -20,4 +21,9 @@ export default function Home() {
       <ContactSection bg="bg-white" />
     </main>
   );
+}
+
+export async function generateMetadata({ params }) {
+  const { locale } = params;
+  return generatePageMetadata("home", locale, "https://orasecure.com");
 }

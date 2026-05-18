@@ -6,6 +6,7 @@ import Navbar from "@/components/base/Navbar";
 import Footer from "@/components/base/Footer";
 import TopBar from "@/components/base/TopBar";
 import FloatingActions from "@/components/base/FloatingActions";
+import StructuredData from "@/components/SEO/StructuredData";
 import { generatePageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
@@ -60,6 +61,7 @@ export default async function RootLayout({ children, params }) {
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <StructuredData locale={locale} />
           <TopBar />
           <Navbar />
           <FloatingActions />

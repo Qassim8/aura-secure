@@ -1,24 +1,11 @@
-"use client";
-import Breadcrumb from "@/components/base/Breadcrumb";
-import ProcessSection from "@/components/projects/ProcessSection";
-import ProjectsSection from "@/components/projects/ProjectsSection";
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
-import { useLocale, useTranslations } from "next-intl";
-import React, { useEffect } from "react";
+import ProjectsClient from "./projects-client";
+import { generatePageMetadata } from "@/lib/seo";
 
-const ProjectsPage = () => {
-  const t = useTranslations("Projects");
+export default function ProjectsPage() {
+  return <ProjectsClient />;
+}
 
-  useEffect(() => {}, []);
-
-  return (
-    <main>
-      <Breadcrumb title={t("Project_1")} />
-      <ProjectsSection isPage={true} />
-      <ProcessSection />
-      <TestimonialsSection bg="bg-white" />
-    </main>
-  );
-};
-
-export default ProjectsPage;
+export async function generateMetadata({ params }) {
+  const { locale } = params;
+  return generatePageMetadata("projects", locale, "https://orasecure.com");
+}

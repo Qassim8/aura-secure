@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { IoLogoWhatsapp } from "react-icons/io";
 import { MdPhone, MdKeyboardArrowUp } from "react-icons/md";
+import { RiWhatsappFill } from "react-icons/ri";
 
 export default function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -14,15 +16,15 @@ export default function FloatingActions() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="fixed right-6 bottom-6 z-50 flex flex-col items-center gap-4 select-none">
+    <div className="fixed right-5 bottom-5 z-50 flex flex-col items-center gap-2 md:gap-4 select-none">
       <a
         href="tel:+966551622891"
-        className="relative inline-flex items-center justify-center w-7 md:w-14 h-7 md:h-14 bg-emerald-600 text-white rounded-full shadow-[0_10px_30px_rgba(16,185,129,0.4)] hover:bg-emerald-500 hover:scale-115 transition-all duration-300 group cursor-pointer"
+        className="relative text-emerald-600 hover:text-emerald-500 hover:scale-115 transition-all duration-300 group"
         aria-label="Call Us"
       >
         <span className="absolute inset-0 rounded-full bg-emerald-500/40 animate-ping duration-1000 pointer-events-none"></span>
 
-        <MdPhone className="text-base md:text-2xl relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+        <IoLogoWhatsapp className="text-3xl md:text-5xl" />
       </a>
 
       <button
