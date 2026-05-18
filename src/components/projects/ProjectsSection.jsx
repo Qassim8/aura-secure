@@ -114,14 +114,14 @@ export default function ProjectsSection({ bg, isPage = false }) {
         />
 
         {isPage && (
-          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-12 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-12 mt-10">
             {filterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 font-black text-xs transition-all duration-300 border select-none cursor-pointer ${
+                  className={`flex items-center gap-2 px-2 md:px-6 py-3 font-black text-xs transition-all duration-300 border select-none cursor-pointer ${
                     isActive
                       ? "bg-(--primary-color) text-white border-(--primary-color) shadow-lg"
                       : "bg-white text-(--alt-color)/80 border-gray-150 hover:border-gray-300 hover:text-(--primary-color)"

@@ -11,9 +11,9 @@ const AboutPage = () => {
   const t = useTranslations("About");
 
   return (
-    <main className="bg-[#fcfcfc]">
+    <main>
       {/* 1. رأس الصفحة والمسار */}
-      <Breadcrumb title={t("section_tag")} pageName={t("section_title")} />
+      <Breadcrumb title={t("section_tag")} />
 
       {/* 2. من نحن والنبذة التعريفية (خلفية بيضاء ناصعة) */}
       <AboutSection bg="white" />
