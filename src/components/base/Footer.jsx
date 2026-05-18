@@ -24,7 +24,6 @@ export default function Footer() {
     >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
-          {/* 1. البراند والوصف والشوسيال (4 أعمدة) */}
           <div className="lg:col-span-4 space-y-6 text-right">
             <h2 className="text-3xl font-black tracking-tighter">
               ORA<span className="text-(--main-color)">SECURE</span>
@@ -79,16 +78,18 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5">
               {[
-                "إنذار الحريق",
-                "الإطفاء المائي",
-                "الصيانة الدورية",
-                "مخططات السلامة",
-              ].map((service, idx) => (
-                <li
-                  key={idx}
-                  className="text-xs md:text-sm text-gray-400 font-bold hover:text-gray-300 transition-colors"
-                >
-                  {service}
+                { id: "01", key: "S1_Title" },
+                { id: "02", key: "S2_Title" },
+                { id: "03", key: "S3_Title" },
+                { id: "04", key: "S4_Title" },
+              ].map((svc) => (
+                <li key={svc.id}>
+                  <Link
+                    href={`/${locale}/services/${svc.id}`}
+                    className="text-xs md:text-sm text-gray-400 font-bold hover:text-gray-300 transition-colors"
+                  >
+                    {t(svc.key)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -100,8 +101,8 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-600 text-(--main-color) group-hover:bg-(--main-color) group-hover:text-white transition-colors duration-300 shrink-0 mt-0.5">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-gray-100/10 text-(--main-color) transition-colors duration-300 shrink-0 mt-0.5">
                   <MdPhone className="text-sm" />
                 </div>
                 <div className="flex flex-col">
@@ -117,8 +118,8 @@ export default function Footer() {
                   ))}
                 </div>
               </div>
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-600 text-(--main-color) group-hover:bg-(--main-color) group-hover:text-white transition-colors duration-300 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-gray-100/10 text-(--main-color) transition-colors duration-300 shrink-0">
                   <MdEmail className="text-sm" />
                 </div>
                 <a
@@ -128,11 +129,11 @@ export default function Footer() {
                   info@orasecure.com
                 </a>
               </div>
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-600 text-(--main-color) group-hover:bg-(--main-color) group-hover:text-white transition-colors duration-300 shrink-0 mt-0.5">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-gray-100/10 text-(--main-color) transition-colors duration-300 shrink-0 mt-0.5">
                   <MdLocationOn className="text-sm" />
                 </div>
-                <p className="text-xs font-bold text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="text-xs font-bold text-gray-400 leading-relaxed">
                   {t("footer_address")}
                 </p>
               </div>

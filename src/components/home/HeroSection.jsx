@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { useTranslations, useLocale } from "next-intl";
-import { MdVerified, MdHandshake } from "react-icons/md";
+import { MdVerified, MdHandshake, MdFileDownload } from "react-icons/md";
 
 // Swiper Styles
 import "swiper/css";
@@ -90,14 +90,16 @@ export default function HeroSection() {
 
                 {/* Buttons */}
                 <div className="flex gap-3 mt-3">
-                  <Link
-                    href=""
-                    className="text-[12px] md:text-sm bg-(--main-color) hover:bg-white hover:text-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all duration-500"
+                  <a
+                    href="/files/ORA-SECURE-PROFILE.pdf"
+                    download="ORA-SECURE-PROFILE.pdf"
+                    className="text-[12px] md:text-sm bg-(--main-color) hover:bg-white hover:text-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all duration-500 flex items-center gap-2"
                   >
                     {t("btn1")}
-                  </Link>
+                    <MdFileDownload className="text-base" />
+                  </a>
                   <Link
-                    href=""
+                    href={`/${locale}/projects`}
                     className="text-[12px] md:text-sm bg-transparent border border-white/20 hover:border-(--main-color) hover:bg-(--main-color) text-white px-4 md:px-10 py-2 md:py-4 md:font-black transition-all"
                   >
                     {t("btn2")}

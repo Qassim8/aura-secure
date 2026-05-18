@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import MainTitle from "../base/MainTitle";
 import {
   MdSearch,
@@ -11,6 +11,8 @@ import {
 
 export default function ProcessSection() {
   const t = useTranslations("Process");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
 
   const steps = [
     {
@@ -40,7 +42,10 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#fcfcfc] relative overflow-hidden">
+    <section
+      className="py-20 bg-(--second-color) relative overflow-hidden"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <div className="container mx-auto px-6">
         <MainTitle
           title={t("Process_1")}
@@ -49,53 +54,38 @@ export default function ProcessSection() {
         />
 
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-20">
-          {/* خط الربط الأفقي (يظهر في الشاشات الكبيرة) */}
-          <div className="hidden lg:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-(--title-color)/10 to-transparent"></div>
+          {/* 1. خط الربط الأفقي الهيدروليكي - تم تحسين لونه ليتوافق مع تدرج الهوية الناعم */}
+          <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-(--main-color)/15 to-transparent"></div>
 
-          {(index) =>
-            steps.map((step, index) => (
-              <div
-                key={index}
-                className="group relative flex flex-col items-center text-center"
-              >
-                {/* الدائرة الحاملة للأيقونة */}
-                <div className="relative z-10 w-24 h-24 bg-white border border-(--title-color)/5 flex items-center justify-center text-3xl text-(--title-color) transition-all duration-500 group-hover:bg-(--main-color) group-hover:text-white group-hover:shadow-[0_20px_40px_rgba(230,26,43,0.3)] mb-8">
-                  {step.icon}
+          {/* الكروت التفاعلية */}
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="group relative flex flex-col items-center text-center select-none"
+            >
+              {/* 2. الدائرة الحاملة للأيقونة - انتقالات ألوان فخمة جداً بين الأزرق والأحمر */}
+              <div className="relative z-10 w-24 h-24 bg-gray-50 border border-gray-100/80 flex items-center justify-center text-3xl text-(--primary-color) transition-all duration-500 group-hover:bg-(--main-color) group-hover:text-white group-hover:rounded-[2rem] group-hover:shadow-[0_20px_40px_-10px_var(--main-color)] group-hover:border-(--main-color) mb-8 shadow-sm">
+                {step.icon}
 
-                  {/* رقم الخطوة المتطاير */}
-                  <span className="absolute -top-2 -right-2 w-8 h-8 bg-(--title-color) text-white text-[10px] font-mono flex items-center justify-center italic group-hover:bg-black transition-colors">
-                    {step.id}
-                  </span>
-                </div>
-
-                {/* المحتوى النصي */}
-                <div className="relative">
-                  <h3 className="text-lg font-black text-(--title-color) mb-4 uppercase tracking-tighter group-hover:text-(--main-color) transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-(--alt-color) font-bold leading-relaxed px-4">
-                    {step.desc}
-                  </p>
-                </div>
-
-                {/* عنصر ديكوري (Dot) عند نهاية كل خطوة */}
-                <div className="hidden lg:block absolute top-12 -right-6 w-2 h-2 bg-(--title-color)/10 rounded-full"></div>
+                {/* 3. رقم الخطوة المتطاير - تحويله لخلفية داكنة تتوهج بالأحمر عند الهوفر */}
+                <span
+                  className={`absolute -top-2 w-8 h-8 bg-(--primary-color) text-white text-[11px] font-mono font-black flex items-center justify-center shadow-md group-hover:bg-white group-hover:text-(--main-color) transition-colors duration-500 ${isRtl ? "-right-2" : "-left-2"}`}
+                >
+                  {step.id}
+                </span>
               </div>
-            ))
-          }
-        </div>
 
-        {/* سطر الختام التقني السفلي */}
-        <div className="mt-24 border-t border-dashed border-(--title-color)/10 pt-8 flex justify-center">
-          <div className="flex items-center gap-6">
-            <span className="text-[9px] font-mono text-(--alt-color)/40 tracking-[5px] uppercase">
-              End_To_End_Execution_Protocol
-            </span>
-            <div className="h-px w-20 bg-(--main-color)"></div>
-            <span className="text-[9px] font-mono text-(--title-color) font-black tracking-[5px] uppercase">
-              Certified_Results
-            </span>
-          </div>
+              {/* 4. المحتوى النصي الموزون بصرياً */}
+              <div className="relative space-y-3">
+                <h3 className="text-lg font-black text-(--primary-color) tracking-tight group-hover:text-(--main-color) transition-colors duration-300">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-(--alt-color)/85 font-medium leading-relaxed px-4">
+                  {step.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

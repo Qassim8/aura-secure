@@ -8,7 +8,7 @@ import { PiMapPinArea } from "react-icons/pi";
 import { LiaUsersCogSolid } from "react-icons/lia";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
-function Counter({ from, to, duration = 2 }) {
+function Counter({ from, to, duration = 2, bg }) {
   const [count, setCount] = useState(from);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -24,7 +24,10 @@ function Counter({ from, to, duration = 2 }) {
   }, [from, to, isInView, duration]);
 
   return (
-    <span className="text-5xl md:text-6xl" ref={ref}>
+    <span
+      className={`text-4xl md:text-6xl text-${bg === "bg-white" ? "(--primary-color)" : "white"}`}
+      ref={ref}
+    >
       {count}
     </span>
   );
@@ -63,9 +66,13 @@ export default function StatsSection({ bg }) {
   return (
     <section className={`py-20 overflow-hidden ${bg}`}>
       <div className="container">
-        <div className="border border-(--second-color)/10 p-5 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          <div className="lg:col-span-5 space-y-4 text-right">
-            <h2 className="text-2xl md:text-4xl font-black text-white leading-tight tracking-tight">
+        <div
+          className={`border ${bg === "bg-white" ? "border-gray-100" : "border-gray-50/10"} p-5 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}
+        >
+          <div className="md:col-span-5 space-y-4 text-right">
+            <h2
+              className={`text-2xl md:text-4xl font-black text-${bg === "bg-white" ? "(--primary-color)" : "white"} leading-tight tracking-tight`}
+            >
               {t("cta_title")}{" "}
               <span className="text-(--main-color) block lg:inline">
                 {t("cta_title_highlight")}
@@ -76,9 +83,13 @@ export default function StatsSection({ bg }) {
             </p>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 relative">
-            <div className="hidden sm:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-50/10 -translate-x-1/2"></div>
-            <div className="hidden sm:block absolute left-0 right-0 top-1/2 h-px bg-gray-50/10 -translate-y-1/2"></div>
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 relative">
+            <div
+              className={`hidden sm:block absolute top-0 bottom-0 left-1/2 w-px ${bg === "bg-white" ? "bg-gray-200" : "bg-gray-50/10"} -translate-x-1/2`}
+            ></div>
+            <div
+              className={`hidden sm:block absolute left-0 right-0 top-1/2 h-px ${bg === "bg-white" ? "bg-gray-200" : "bg-gray-50/10"} -translate-y-1/2`}
+            ></div>
 
             {stats.map((stat, index) => (
               <motion.div
@@ -93,8 +104,10 @@ export default function StatsSection({ bg }) {
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex justify-center items-baseline text-4xl md:text-5xl font-black text-white tracking-tighter leading-none">
-                    <Counter from={0} to={stat.target} />
+                  <div
+                    className={`flex justify-center items-baseline text-4xl md:text-5xl font-black tracking-tighter leading-none`}
+                  >
+                    <Counter from={0} to={stat.target} bg={bg} />
                     <span className="text-3xl md:text-5xl font-black text-(--main-color) mr-0.5">
                       {stat.suffix}
                     </span>

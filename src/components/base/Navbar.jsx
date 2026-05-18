@@ -55,7 +55,6 @@ export default function Navbar() {
     >
       <div className="container">
         <div className="relative flex items-center justify-between">
-          {/* Logo */}
           <Link
             href={`/${locale}`}
             className="flex items-center gap-4 relative"
@@ -65,7 +64,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
             {links.map((link) => {
               const active = isActive(link.href);
@@ -74,7 +72,7 @@ export default function Navbar() {
                 <Link
                   key={link.key}
                   href={link.href}
-                  className={`relative p-5 text-sm font-semibold transition-all duration-300 ${
+                  className={`relative p-5 text-sm font-semibold transition-all duration-300 focus:outline-none ${
                     active
                       ? "text-white bg-(--main-color)"
                       : "text-(--primary-color)  hover:bg-(--main-color)/5"
@@ -86,9 +84,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Language */}
             <button
               onClick={toggleLanguage}
               className="cursor-pointer transition-all flex items-center gap-2 text-(--primary-color) text-sm font-medium"
@@ -96,19 +92,8 @@ export default function Navbar() {
               <RiGlobalLine className="text-lg" />
               {locale === "ar" ? "English" : "العربية"}
             </button>
-
-            {/* CTA */}
-            <Link
-              href={`/${locale}/contact`}
-              className="group py-3 px-6  text-white bg-(--main-color) hover:scale-[1.03] transition-all flex items-center gap-1 text-sm font-bold"
-            >
-              <PiPhoneCallDuotone className="text-lg" />
-
-              {t("contact")}
-            </Link>
           </div>
 
-          {/* Mobile Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden relative w-8 h-8 bg-white/5 border border-(--main-color)/10 flex items-center justify-center text-(--main-color) text-2xl"
@@ -118,13 +103,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden absolute top-full left-0 w-full transition-all duration-300 ${
           mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        {/* Overlay */}
         <div
           onClick={() => setMobileOpen(false)}
           className={`fixed inset-0 transition-all duration-300 ${
@@ -132,13 +115,11 @@ export default function Navbar() {
           }`}
         />
 
-        {/* Menu Content */}
         <div
           className={`relative bg-white border-t border-black/5 shadow-2xl transition-all duration-500 overflow-hidden ${
             mobileOpen ? "h-[90vh]" : "max-h-0"
           }`}
         >
-          {/* Links */}
           <div className="flex flex-col p-4 gap-2">
             {links.map((link) => {
               const active = isActive(link.href);
@@ -160,7 +141,6 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Bottom Actions */}
           <div className="p-4 border-t border-black/5 flex flex-col gap-3">
             <button
               onClick={toggleLanguage}
@@ -170,16 +150,6 @@ export default function Navbar() {
 
               {locale === "ar" ? "Switch to English" : "التبديل للعربية"}
             </button>
-
-            <Link
-              href={`/${locale}/contact`}
-              onClick={() => setMobileOpen(false)}
-              className="h-12 bg-(--main-color) text-white font-bold flex items-center justify-center gap-1"
-            >
-              <PiPhoneCallDuotone className="text-lg" />
-
-              {t("contact")}
-            </Link>
           </div>
         </div>
       </div>

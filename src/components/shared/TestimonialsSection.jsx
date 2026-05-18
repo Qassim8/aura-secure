@@ -42,8 +42,8 @@ export default function TestimonialsSection({ bg }) {
             spaceBetween={30}
             slidesPerView={1}
             centeredSlides={true}
-            loop={true} // تفعيل التكرار اللانهائي
-            loopedSlides={3} // إخبار السويبر بعدد السلايدات لمضاعفتها في الخلفية
+            loop={true}
+            loopedslides={3}
             dir={isRtl ? "rtl" : "ltr"}
             key={locale}
             autoplay={{
