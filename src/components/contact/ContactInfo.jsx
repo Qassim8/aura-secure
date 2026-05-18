@@ -60,21 +60,21 @@ export default function ContactInfo() {
   ];
 
   return (
-    <section className="py-20 bg-white" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+    <section className="py-20 bg-white">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-12 items-stretch">
           <div className="flex flex-col gap-6 justify-between">
             {infoCards.map((card) => (
               <div
                 key={card.id}
                 className="group bg-gray-50/60 border border-gray-100 p-6 md:p-8 flex items-center gap-6 hover:bg-white hover:border-gray-200 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] transition-all duration-500"
               >
-                <div className="w-14 h-14 bg-(--primary-color) text-white group-hover:bg-(--main-color) flex items-center justify-center text-2xl shadow-md transition-colors duration-500 shrink-0">
+                <div className="w-7 md:w-14 h-7 md:h-14 bg-(--primary-color) text-white group-hover:bg-(--main-color) flex items-center justify-center text-sm md:text-2xl shadow-md transition-colors duration-500 shrink-0">
                   {card.icon}
                 </div>
 
-                <div className="grow space-y-2 text-right">
-                  <h4 className="text-base font-black text-(--primary-color) group-hover:text-(--main-color) transition-colors duration-300">
+                <div className="grow space-y-2 text-start">
+                  <h4 className="text-sm md:text-base font-semibold md:font-black text-(--primary-color) group-hover:text-(--main-color) transition-colors duration-300">
                     {card.title}
                   </h4>
 
@@ -105,7 +105,7 @@ export default function ContactInfo() {
 
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.877042564883!2d46.7410052!3d24.6278895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f067d5d30e38b%3A0xcd50bf8a77d1303d!2z2KfZhNiu2KfZhNiv2YrZgdiMINin2YTYsdmK2KfZhA!5e0!3m2!1sar!2ssa!4v1716000000000!5m2!1sar!2ssa"
-              className="w-full h-full min-h-112.5 lg:h-full border-0 grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              className="w-full h-full min-h-112.5 lg:h-full border-0 md:grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

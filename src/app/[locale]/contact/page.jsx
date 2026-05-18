@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from "next-intl";
 import Breadcrumb from "@/components/base/Breadcrumb";
 import React from "react";
@@ -6,6 +7,8 @@ import ContactSection from "@/components/contact/ContactSection";
 
 const ContactPage = () => {
   const t = useTranslations("Contact");
+
+  React.useEffect(() => {}, []);
 
   return (
     <main>

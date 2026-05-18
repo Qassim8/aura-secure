@@ -13,7 +13,7 @@ export default function ContactSection({ bg }) {
 
   return (
     <section
-      className={`py-20 ${bg} relative overflow-hidden text-right`}
+      className={`py-20 ${bg} relative overflow-hidden text-start`}
       dir={isRtl ? "rtl" : "ltr"}
     >
       <div className="container relative z-10">
