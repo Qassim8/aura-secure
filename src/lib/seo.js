@@ -73,6 +73,29 @@ export const seoData = {
         "Comprehensive safety and security solutions from design and installation to maintenance and technical support.",
     },
 
+    projects: {
+      title:
+        "Aura Secure Projects | Fire Safety & Security Projects in Saudi Arabia",
+
+      description:
+        "Explore Aura Secure’s portfolio of fire alarm systems, fire fighting systems, CCTV surveillance, maintenance contracts, and safety engineering projects across Saudi Arabia.",
+
+      keywords: [
+        "fire safety projects",
+        "CCTV projects Saudi Arabia",
+        "fire alarm installations",
+        "industrial fire protection",
+        "maintenance contracts",
+        "safety engineering projects",
+        "Aura Secure projects",
+      ],
+
+      ogTitle: "Aura Secure Projects | Certified Safety & Security Solutions",
+
+      ogDescription:
+        "Discover our completed safety and security projects including fire alarms, suppression systems, surveillance, and maintenance solutions.",
+    },
+
     contact: {
       title: "Contact Aura Secure | Request Inspection & Technical Support",
 
@@ -167,6 +190,29 @@ export const seoData = {
 
       ogDescription:
         "حلول هندسية متكاملة تشمل الإنذار، الإطفاء، المراقبة، الصيانة، ومخططات السلامة وفق أعلى المعايير المحلية والعالمية.",
+    },
+
+    projects: {
+      title: "مشاريع أوراسيكيور | مشاريع أنظمة الأمن والسلامة في السعودية",
+
+      description:
+        "استكشف مشاريع أوراسيكيور في أنظمة إنذار الحريق، الإطفاء، كاميرات المراقبة، عقود الصيانة، والحلول الهندسية المعتمدة للأمن والسلامة في المملكة العربية السعودية.",
+
+      keywords: [
+        "مشاريع الأمن والسلامة",
+        "أنظمة إنذار الحريق",
+        "مشاريع كاميرات المراقبة",
+        "أنظمة الإطفاء",
+        "عقود صيانة",
+        "هندسة السلامة",
+        "مشاريع أوراسيكيور",
+        "أنظمة الحريق السعودية",
+      ],
+
+      ogTitle: "مشاريع أوراسيكيور | حلول معتمدة لأنظمة الأمن والسلامة",
+
+      ogDescription:
+        "تعرف على أبرز مشاريع أوراسيكيور في أنظمة الحريق والمراقبة والصيانة والحلول الهندسية بالمملكة.",
     },
 
     contact: {
