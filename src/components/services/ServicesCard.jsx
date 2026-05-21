@@ -4,6 +4,7 @@ import { MdArrowForward } from "react-icons/md";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { CgClose } from "react-icons/cg";
+import Image from "next/image";
 
 const ServicesCard = ({ service }) => {
   const [open, setOpen] = useState(false);
@@ -54,7 +55,7 @@ const ServicesCard = ({ service }) => {
             onClick={() => setOpen(false)}
           />
 
-          <div className="relative bg-white shadow-xl max-w-3xl w-full mx-4 p-6 z-10">
+          <div className="relative bg-white shadow-xl max-w-xl w-full mx-4 p-6 z-10">
             <div className="flex justify-between items-start mb-4">
               <h4 className="text-xl font-black text-(--primary-color)">
                 {service.title}
@@ -68,9 +69,11 @@ const ServicesCard = ({ service }) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div className="w-full h-48 bg-gray-100 rounded overflow-hidden">
+              <div className="w-full h-60 bg-gray-100 overflow-hidden">
                 {service.images && service.images[0] ? (
-                  <img
+                  <Image
+                    width={250}
+                    height={250}
                     src={service.images[0]}
                     alt="img1"
                     className="w-full h-full object-cover"
@@ -79,9 +82,11 @@ const ServicesCard = ({ service }) => {
                   <div className="w-full h-full bg-gray-200" />
                 )}
               </div>
-              <div className="w-full h-48 bg-gray-100 overflow-hidden">
+              <div className="w-full h-60 bg-gray-100 overflow-hidden">
                 {service.images && service.images[1] ? (
-                  <img
+                  <Image
+                    width={250}
+                    height={250}
                     src={service.images[1]}
                     alt="img2"
                     className="w-full h-full object-cover"
@@ -92,8 +97,8 @@ const ServicesCard = ({ service }) => {
               </div>
             </div>
 
-            <div className="text-sm text-(--alt-color) leading-relaxed mb-6">
-              {service.longDesc || service.desc}
+            <div className="text-sm md:text-base text-(--alt-color) leading-relaxed mb-6">
+              {service.longDesc}
             </div>
           </div>
         </div>

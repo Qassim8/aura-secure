@@ -1,13 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://orasecure.com/en</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+
+  <!-- HOME -->
+
   <url>
     <loc>https://orasecure.com/ar</loc>
-    <changefreq>daily</changefreq>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://orasecure.com/ar"
+    />
+
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <url>
+    <loc>https://orasecure.com/en</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en"
+    />
+
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ABOUT -->
+
+  <url>
+    <loc>https://orasecure.com/ar/about</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/about"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/about"
+    />
+
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://orasecure.com/en/about</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/about"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/about"
+    />
+
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SERVICES -->
+
+  <url>
+    <loc>https://orasecure.com/ar/services</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/services"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/services"
+    />
+
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://orasecure.com/en/services</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/services"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/services"
+    />
+
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- CONTACT -->
+
+  <url>
+    <loc>https://orasecure.com/ar/contact</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/contact"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/contact"
+    />
+
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://orasecure.com/en/contact</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/contact"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/contact"
+    />
+
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- PROJECTS -->
+
+  <url>
+    <loc>https://orasecure.com/ar/projects</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/projects"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/projects"
+    />
+
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://orasecure.com/en/projects</loc>
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="ar"
+      href="https://orasecure.com/ar/projects"
+    />
+
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://orasecure.com/en/projects"
+    />
+
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>

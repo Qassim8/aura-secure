@@ -6,6 +6,6 @@ export default function ContactPage() {
 }
 
 export async function generateMetadata({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   return generatePageMetadata("contact", locale, "https://orasecure.com");
 }

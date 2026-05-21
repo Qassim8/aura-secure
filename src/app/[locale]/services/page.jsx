@@ -6,6 +6,6 @@ export default function ServicesPage() {
 }
 
 export async function generateMetadata({ params }) {
-  const { locale } = params;
+  const { locale } = await params;
   return generatePageMetadata("services", locale, "https://orasecure.com");
 }

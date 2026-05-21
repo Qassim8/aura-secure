@@ -50,28 +50,41 @@
     "mission_text": "Deliver integrated, code-compliant safety systems with professional engineering, timely execution, and ongoing support to protect people and assets."
   },
   "Services": {
-    "view_more": "View more",
-    "open_full": "Open full page",
-    "detail_note": "For inquiries about this service, please contact our team.",
     "Services_1": "Our Services",
-    "Services_2": "Integrated security solutions to the highest standards",
+    "Services_2": "Integrated Safety Solutions with the Latest Standards",
     "Services_3": "04",
+
     "S1_Title": "Fire Alarm Systems",
-    "S1_Desc": "Supply and installation of advanced fire alarm systems compliant with international standards.",
-    "S2_Title": "Fire Fighting Systems",
-    "S2_Desc": "Design and implementation of water, foam, and gas (FM200) suppression systems.",
-    "S3_Title": "Maintenance Contracts",
-    "S3_Desc": "Preventive and corrective maintenance services to ensure system readiness.",
-    "S4_Title": "Surveillance & Security",
-    "S4_Desc": "Integrated CCTV and access control solutions.",
-    "S5_Title": "Safety Plans",
-    "S5_Desc": "Engineering drawings, evacuation maps, and safety equipment layout.",
-    "CTA_Title": "Need a technical inspection?",
-    "CTA_Desc": "We reach you anywhere in the Kingdom to ensure the highest safety standards.",
-    "CTA_Btn": "Book your inspection",
-    "map_section_title": "Protect your facility and safeguard your investment today",
-    "map_section_desc": "Let Aura-Secure engineers in Riyadh and across the Kingdom provide certified and customized engineering solutions for your building's security and safety requirements",
-    "map_section_btn": "Contact our engineers!"
+    "S1_Desc": "Supply and installation of advanced smart early-warning fire alarm systems compliant with international standards.",
+    "S1_LongDesc": "In this service, we design, supply, and install advanced fire alarm systems that help detect potential risks at an early stage. We professionally integrate sensors, alarm devices, and control panels to ensure rapid response and risk reduction. All systems are implemented in accordance with Saudi Civil Defense requirements and international standards to guarantee the highest levels of safety and protection for commercial, industrial, and residential facilities.",
+
+    "S2_Title": "Fire Suppression Systems",
+    "S2_Desc": "Design and implementation of water, foam, and gaseous fire suppression systems (FM200) with exceptional precision.",
+    "S2_LongDesc": "In this service, we design and implement integrated fire suppression systems of all types, including sprinkler systems, foam suppression systems, and FM200 gas suppression systems. We carefully study the nature of each site to provide the most suitable solutions for every facility. Our focus is on delivering highly efficient systems that ensure rapid fire control, minimize potential damage, and fully comply with approved quality and safety standards.",
+
+    "S3_Title": "Periodic Maintenance Contracts",
+    "S3_Desc": "Preventive and corrective maintenance services to ensure system readiness and extend operational lifespan.",
+    "S3_LongDesc": "In this service, we provide comprehensive periodic maintenance programs for safety, alarm, and fire suppression systems to ensure maximum efficiency at all times. The service includes regular inspections, system testing, fault troubleshooting, replacement of damaged components, and detailed technical reporting to maintain operational readiness, extend system lifespan, and reduce the risk of unexpected failures.",
+
+    "S4_Title": "Security & Surveillance Systems",
+    "S4_Desc": "Integrated solutions for CCTV surveillance and access control systems.",
+    "S4_LongDesc": "In this service, we supply and install the latest security surveillance systems, including high-definition CCTV cameras and access control systems that enhance security levels within facilities. We develop integrated security solutions that enable site monitoring, access management, and professional event recording to ensure asset protection and improve operational control.",
+
+    "S5_Title": "Safety Plans & Drawings",
+    "S5_Desc": "Approval of engineering safety plans, escape route designs, and distribution of safety equipment.",
+    "S5_LongDesc": "In this service, we prepare and approve engineering safety plans in accordance with Saudi Civil Defense requirements, including the design of escape routes, distribution of safety systems and equipment, and identification of emergency assembly points to ensure occupant safety within the facility. We also assist in preparing the technical documentation and drawings required for project approvals and full regulatory compliance.",
+
+    "CTA_Title": "Need a Technical Site Inspection?",
+    "CTA_Desc": "We reach you anywhere across the Kingdom to ensure the highest standards of safety and security.",
+    "CTA_Btn": "Book Your Appointment Now",
+
+    "view_more": "View More",
+    "open_full": "Open Full Page",
+    "detail_note": "For more inquiries about this service, contact our team.",
+
+    "map_section_title": "Protect Your Facility and Secure Your Investment Today",
+    "map_section_desc": "Let ORA Secure engineers across Riyadh and the Kingdom provide certified engineering solutions tailored to your safety and security requirements.",
+    "map_section_btn": "Contact Our Engineers Today"
   },
   "Stats": {
     "cta_title": "Let's build something",
@@ -83,7 +96,7 @@
     "Stats_10": "Nationwide coverage"
   },
   "Projects": {
-    "Project_1": "Our Work",
+    "Project": "Our Work",
     "Projects_1": "Our track record",
     "Projects_2": "Approved Aura Secure projects",
     "P_View": "View all projects",
@@ -167,6 +180,7 @@
     "S2_Title": "Fire Suppression Systems",
     "S3_Title": "Periodic Maintenance Contracts",
     "S4_Title": "Surveillance and Security Systems",
+    "S5_Title": "Safety Plans Engineering",
     "Home": "Home",
     "About": "About",
     "Projects": "Our Projects",

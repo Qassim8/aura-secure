@@ -7,6 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { MdOutlineSecurity, MdMenu, MdClose } from "react-icons/md";
 import { PiPhoneCallDuotone } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
+import Image from "next/image";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -57,11 +58,15 @@ export default function Navbar() {
         <div className="relative flex items-center justify-between">
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-4 relative"
+            className="flex items-center gap-4 relative w-20 h-16"
           >
-            <div className="p-3 bg-(--main-color)/10 border border-(--main-color)/20 flex items-center justify-center">
-              <MdOutlineSecurity className="text-2xl text-(--main-color)" />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Aura Secure Logo"
+              width={120}
+              height={20}
+              className="max-w-full h-auto object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
@@ -72,7 +77,7 @@ export default function Navbar() {
                 <Link
                   key={link.key}
                   href={link.href}
-                  className={`relative p-5 text-sm font-semibold transition-all duration-300 focus:outline-none ${
+                  className={`relative px-6 py-6.75 text-sm font-semibold transition-all duration-300 focus:outline-none ${
                     active
                       ? "text-white bg-(--main-color)"
                       : "text-(--primary-color)  hover:bg-(--main-color)/5"
@@ -96,7 +101,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-8 h-8 bg-white/5 border border-(--main-color)/10 flex items-center justify-center text-(--main-color) text-2xl"
+            className="md:hidden relative w-8 h-8 flex items-center justify-center text-(--main-color) text-2xl"
           >
             {mobileOpen ? <MdClose /> : <MdMenu />}
           </button>

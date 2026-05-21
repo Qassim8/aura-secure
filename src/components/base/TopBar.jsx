@@ -27,7 +27,6 @@ export default function TopBar() {
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           {/* رقم الهاتف */}
           <div className="flex items-center gap-1">
-            {/* الأيقونات تأخذ اللون الأحمر (---main-color أو --primary-color) لتضيء فوق الأسود */}
             <MdPhone className="text-(--main-color) text-sm shrink-0" />
             <a
               href="tel:+966551622891"

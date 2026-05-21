@@ -1,39 +1,81 @@
 "use client";
+
 import React from "react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-export default function PageHeader({ title }) {
+export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
   const locale = useLocale();
+
   const isRtl = locale === "ar";
 
   return (
-    <section className="relative bg-(--primary-color) py-16 md:py-20 overflow-hidden text-right select-none">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none"></div>
+    <section className="relative overflow-hidden bg-(--primary-color) py-24 md:py-32">
+      {/* GRID */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-size-[60px_60px]" />
+      </div>
 
-      <div className="container relative z-10 flex flex-col justify-center items-center gap-4">
-        <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight">
-          {title}
-        </h1>
+      {/* RED GLOW */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-(--main-color)/20 blur-3xl" />
 
-        <nav className="flex items-center gap-2 text-xs md:text-sm font-bold bg-white/5 backdrop-blur-md border border-white/5 px-5 py-2.5 rounded-xl">
-          <Link
-            href={`/${locale}`}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            {isRtl ? "الرئيسية" : "Home"}
-          </Link>
+      <div className="container relative z-10">
+        <div className="max-w-4xl">
+          {/* SMALL LABEL */}
+          <div className="flex items-center gap-4 mb-8">
+            <span className="w-16 h-px bg-(--main-color)" />
 
-          {isRtl ? (
-            <MdChevronLeft className="text-gray-600 text-base" />
-          ) : (
-            <MdChevronRight className="text-gray-600 text-base" />
+            <span className="text-(--main-color) uppercase tracking-[0.35em] text-xs font-black">
+              Aura Secure
+            </span>
+          </div>
+
+          {/* TITLE */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase">
+            {title}
+          </h1>
+
+          {/* SUBTITLE */}
+          {subtitle && (
+            <p className="mt-8 text-white/70 text-lg leading-8 max-w-2xl">
+              {subtitle}
+            </p>
           )}
 
-          <span className="text-(--main-color)">{title}</span>
-        </nav>
+          {/* BREADCRUMB */}
+          <nav className="flex flex-wrap items-center gap-2 mt-10 text-sm font-bold">
+            {breadcrumbs.map((item, index) => {
+              const isLast = index === breadcrumbs.length - 1;
+
+              return (
+                <React.Fragment key={index}>
+                  {!isLast ? (
+                    <Link
+                      href={item.href}
+                      className="text-white/50 hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className="text-(--main-color)">{item.label}</span>
+                  )}
+
+                  {!isLast &&
+                    (isRtl ? (
+                      <MdChevronLeft className="text-white/30 text-lg" />
+                    ) : (
+                      <MdChevronRight className="text-white/30 text-lg" />
+                    ))}
+                </React.Fragment>
+              );
+            })}
+          </nav>
+        </div>
       </div>
+
+      {/* BOTTOM LINE */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-(--main-color)/40 to-transparent" />
     </section>
   );
 }

@@ -35,8 +35,16 @@ export async function generateMetadata({ params }) {
   return generatePageMetadata("home", locale, "https://orasecure.com");
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+export async function generateStaticParams() {
+  const locales = ["ar", "en"];
+  const ids = ["01", "02", "03", "04", "05"];
+
+  return locales.flatMap((locale) =>
+    ids.map((id) => ({
+      locale,
+      id,
+    })),
+  );
 }
 
 export default async function RootLayout({ children, params }) {

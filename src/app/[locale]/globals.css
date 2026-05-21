@@ -26,7 +26,6 @@ body {
 }
 
 @theme {
-  /* --- الأنيميشن السابقة الخاصة بك --- */
   @keyframes color-fade {
     0%,
     100% {
@@ -49,8 +48,6 @@ body {
   }
   --animate-glow-pulse: glow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
-  /* --- أنيميشن الـ Hero الجديدة (Scanner & X-Ray) --- */
-
   @keyframes marquee-forward {
     0% {
       transform: translateX(0);
@@ -69,9 +66,9 @@ body {
     }
   }
 
-  --animate-marquee-forward: marquee-forward 30s linear infinite;
+  --animate-marquee-forward: marquee-forward 25s linear infinite !important;
 
-  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite !important;
 
   /* 1. حركة خط الليزر الأحمر */
   @keyframes scanner-line {
@@ -90,8 +87,6 @@ body {
   }
   --animate-scanner: scanner-line 6s linear;
 
-  /* 2. حركة كشف الأنظمة (X-Ray Reveal) */
-  /* نستخدم الـ clip-path لمحاكاة المسح الضوئي */
   @keyframes reveal-systems {
     0% {
       clip-path: inset(0 100% 0 0);

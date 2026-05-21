@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -25,9 +26,18 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
           <div className="lg:col-span-4 space-y-6 text-start">
-            <h2 className="text-3xl font-black tracking-tighter">
-              ORA<span className="text-(--main-color)">SECURE</span>
-            </h2>
+            <Link
+              href={`/${locale}`}
+              className="flex items-center gap-4 relative w-20 md:w-32 h-16 md:h-24"
+            >
+              <Image
+                src="/logo.png"
+                alt="Aura Secure Logo"
+                width={120}
+                height={20}
+                className="max-w-full h-auto object-contain"
+              />
+            </Link>
             <p className="text-xs md:text-sm text-gray-300 font-medium leading-relaxed max-w-sm">
               {t("Footer_Desc")}
             </p>
@@ -78,10 +88,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5">
               {[
-                { id: "01", key: "S1_Title" },
-                { id: "02", key: "S2_Title" },
-                { id: "03", key: "S3_Title" },
-                { id: "04", key: "S4_Title" },
+                { id: "fire-alarm-systems", key: "S1_Title" },
+                { id: "fire-fighting-systems", key: "S2_Title" },
+                { id: "maintenance-contracts", key: "S3_Title" },
+                { id: "cctv-security-systems", key: "S4_Title" },
+                { id: "safety-plans-engineering", key: "S5_Title" },
               ].map((svc) => (
                 <li key={svc.id}>
                   <Link
