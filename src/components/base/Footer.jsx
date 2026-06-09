@@ -97,7 +97,7 @@ export default function Footer() {
                 <li key={svc.id}>
                   <Link
                     href={`/${locale}/services/${svc.id}`}
-                    className="text-xs md:text-sm text-gray-400 font-bold hover:text-gray-300 transition-colors"
+                    className="text-xs md:text-sm text-gray-400 font-bold hover:text-gray-300 transition-colors outline-none"
                   >
                     {t(svc.key)}
                   </Link>

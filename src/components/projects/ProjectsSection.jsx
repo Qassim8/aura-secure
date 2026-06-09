@@ -121,7 +121,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`flex items-center gap-2 px-2 md:px-6 py-3 font-black text-xs transition-all duration-300 border select-none cursor-pointer ${
+                  className={`flex justify-center items-center gap-2 px-2 md:px-6 py-3 font-black text-xs transition-all duration-300 border select-none cursor-pointer ${
                     isActive
                       ? "bg-(--primary-color) text-white border-(--primary-color) shadow-lg"
                       : "bg-white text-(--alt-color)/80 border-gray-150 hover:border-gray-300 hover:text-(--primary-color)"
@@ -163,7 +163,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
                   className="object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 opacity-75 group-hover:opacity-95"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-(--primary-color) via-(--primary-color)/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 md:p-8">
+                <div className="absolute inset-0 bg-linear-to-t from-(--primary-color) via-(--primary-color)/40 to-transparent md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 md:p-8">
                   <h3 className="text-lg md:text-xl font-black text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 leading-tight">
                     {project.title}
                   </h3>
@@ -181,7 +181,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
           <div className="mt-16 flex justify-center">
             <Link
               href={`/${locale}/projects`}
-              className="group relative px-8 md:px-12 py-3 md:py-4 overflow-hidden border border-(--main-color) text-(--main-color) font-black text-xs uppercase tracking-[4px] hover:text-white hover:bg-(--main-color) transition-colors duration-500"
+              className="group relative px-8 md:px-12 py-3 md:py-4 overflow-hidden border border-(--main-color) text-(--main-color) font-black text-xs tracking-[2px] hover:text-white hover:bg-(--main-color) transition-colors duration-500"
             >
               {t("P_View")}
               <MdOutlineArrowOutward className="inline-block ms-2 text-lg transition-transform duration-300 group-hover:translate-x-1" />

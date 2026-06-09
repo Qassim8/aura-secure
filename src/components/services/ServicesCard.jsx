@@ -55,8 +55,8 @@ const ServicesCard = ({ service }) => {
             onClick={() => setOpen(false)}
           />
 
-          <div className="relative bg-white shadow-xl max-w-xl w-full mx-4 p-6 z-10">
-            <div className="flex justify-between items-start mb-4">
+          <div className="relative bg-white shadow-xl max-w-xl w-full mx-4 z-10 overflow-y-scroll md:overflow-y-auto h-[70vh] md:h-auto">
+            <div className="sticky top-0 bg-white flex justify-between items-start p-4">
               <h4 className="text-xl font-black text-(--primary-color)">
                 {service.title}
               </h4>
@@ -68,8 +68,8 @@ const ServicesCard = ({ service }) => {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div className="w-full h-60 bg-gray-100 overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+              <div className="w-full h-36 md:h-60 bg-gray-100 overflow-hidden">
                 {service.images && service.images[0] ? (
                   <Image
                     width={250}
@@ -82,7 +82,7 @@ const ServicesCard = ({ service }) => {
                   <div className="w-full h-full bg-gray-200" />
                 )}
               </div>
-              <div className="w-full h-60 bg-gray-100 overflow-hidden">
+              <div className="w-full h-36 md:h-60 bg-gray-100 overflow-hidden">
                 {service.images && service.images[1] ? (
                   <Image
                     width={250}
@@ -97,8 +97,18 @@ const ServicesCard = ({ service }) => {
               </div>
             </div>
 
-            <div className="text-sm md:text-base text-(--alt-color) leading-relaxed mb-6">
+            <div className="text-sm md:text-base text-(--alt-color) leading-relaxed p-4">
               {service.longDesc}
+            </div>
+
+            <div className="p-4">
+              <Link
+                href={`/${locale}/services/${service.link}`}
+                className="text-white bg-(--main-color) flex justify-center items-center gap-2 text-sm py-2 group-hover:text-white transition-colors duration-300 z-30"
+              >
+                {t("view_more")}
+                <MdArrowForward />
+              </Link>
             </div>
           </div>
         </div>

@@ -76,7 +76,7 @@ export default function TestimonialsSection({ bg }) {
                     }`}
                   >
                     <MdFormatQuote
-                      className={`absolute top-4 ${isRtl ? "left-4" : "right-4"} text-7xl text-(--primary-color)/10`}
+                      className={`absolute top-1 md:top-4 ${isRtl ? "left-2 md:left-4" : "right-2 md:right-4"} text-7xl text-(--primary-color)/10`}
                     />
 
                     <div className="flex gap-1 mb-6">
@@ -88,19 +88,19 @@ export default function TestimonialsSection({ bg }) {
                       ))}
                     </div>
 
-                    <p className="text-base md:text-lg font-bold text-(--title-color) leading-relaxed mb-10 italic">
+                    <p className="text-sm md:text-lg font-bold text-(--title-color) leading-relaxed mb-5 md:mb-10 italic">
                       &quot;{item.text}&quot;
                     </p>
 
-                    <div className="flex items-center gap-5 pt-8 border-t border-black/5">
-                      <div className="w-14 h-14 bg-(--primary-color) flex items-center justify-center text-white font-black text-2xl shrink-0">
+                    <div className="flex items-center gap-5 pt-4 md:pt-8 border-t border-black/5">
+                      <div className="w-10 md:w-14 h-10 md:h-14 bg-(--primary-color) flex items-center justify-center text-white font-black text-base md:text-2xl shrink-0">
                         {item.name.charAt(0)}
                       </div>
                       <div className={isRtl ? "text-right" : "text-left"}>
-                        <h4 className="text-base font-black text-(--title-color) uppercase tracking-tighter">
+                        <h4 className="text-sm md:text-base font-black text-(--title-color) uppercase md:tracking-tighter">
                           {item.name}
                         </h4>
-                        <span className="text-[11px] font-mono text-(--alt-color) uppercase tracking-[3px]">
+                        <span className="text-[10px] md:text-[11px] font-mono text-(--alt-color) uppercase md:tracking-[3px]">
                           {item.job}
                         </span>
                       </div>
@@ -113,18 +113,18 @@ export default function TestimonialsSection({ bg }) {
 
           <div className="flex flex-row justify-between items-center mt-10">
             <div className="flex gap-3">
-              <button className="prev-btn cursor-pointer w-10 h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
+              <button className="prev-btn cursor-pointer w-7 md:w-10 h-7 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
                 {isRtl ? (
-                  <MdArrowForward size={20} />
+                  <MdArrowForward className="text-base md:text-xl" />
                 ) : (
-                  <MdArrowBack size={20} />
+                  <MdArrowBack className="text-base md:text-xl" />
                 )}
               </button>
-              <button className="next-btn cursor-pointer w-10 h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
+              <button className="next-btn cursor-pointer w-7 md:w-10 h-7 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
                 {isRtl ? (
-                  <MdArrowBack size={20} />
+                  <MdArrowBack className="text-base md:text-xl" />
                 ) : (
-                  <MdArrowForward size={20} />
+                  <MdArrowForward className="text-base md:text-xl" />
                 )}
               </button>
             </div>
@@ -154,7 +154,7 @@ export default function TestimonialsSection({ bg }) {
             width: 15px;
           }
           .custom-pag .swiper-pagination-bullet-active {
-            width: 20px;
+            width: 25px;
           }
         }
       `}</style>

@@ -31,7 +31,7 @@ export default function AboutSection({ bg }) {
               <span className="text-2xl md:text-5xl font-black text-(--main-color) leading-none tracking-tighter">
                 {t("exp_number")}
               </span>
-              <span className="text-[10px] md:font-black uppercase tracking-[2px] text-gray-200 text-center mt-2 md:leading-tight">
+              <span className="text-[10px] md:font-black uppercase tracking-normal md:tracking-[2px] text-gray-200 text-center mt-2 md:leading-tight">
                 {t("exp_text")}
               </span>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -10,7 +10,7 @@ import Link from "next/link";
 import { GiFlame, GiWrench } from "react-icons/gi";
 import { GoShieldCheck } from "react-icons/go";
 import { LuBadgeCheck, LuBuilding2 } from "react-icons/lu";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import ServicesCTA from "@/components/services/ServicesCTAWithMap";
 import PageHeader from "@/components/base/Breadcrumb";
 
@@ -22,6 +22,8 @@ export default function ServiceDetailClient() {
   const t = useTranslations("Services");
 
   const id = params.id;
+
+  useEffect(() => {}, []);
 
   const services = [
     {
@@ -178,7 +180,7 @@ export default function ServiceDetailClient() {
       {/* HERO */}
 
       <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-(--primary-color) to-[#09101d]" />
+        <div className="absolute inset-0 bg-red-100/20" />
 
         <div className="container relative z-10">
           <div className="max-w-4xl">
@@ -186,11 +188,7 @@ export default function ServiceDetailClient() {
               {service.icon}
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
-              {service.title}
-            </h1>
-
-            <p className="mt-8 text-lg leading-9 text-white/70 max-w-3xl">
+            <p className="mt-8 text-lg leading-9 text-(--primary-color) max-w-3xl">
               {service.desc}
             </p>
 
@@ -201,7 +199,11 @@ export default function ServiceDetailClient() {
               >
                 {locale === "ar" ? "اطلب معاينة الآن" : "Request Inspection"}
 
-                <BsArrowRight className="w-5 h-5" />
+                {locale === "en" ? (
+                  <BsArrowRight className="w-5 h-5" />
+                ) : (
+                  <BsArrowLeft className="w-5 h-5" />
+                )}
               </Link>
             </div>
           </div>
@@ -219,13 +221,13 @@ export default function ServiceDetailClient() {
             }
           />
 
-          <div className="grid md:grid-cols-2 gap-px mt-14 border border-black/10 bg-black/10">
+          <div className="grid md:grid-cols-2 gap-px mt-14 border border-slate-200 bg-black/10">
             {service.features.map((feature, index) => (
               <div
                 key={index}
                 className="bg-white p-10 hover:bg-(--primary-color) hover:text-white transition-all duration-300 group"
               >
-                <div className="flex items-start gap-5">
+                <div className="flex items-center gap-5">
                   <div className="w-14 h-14 border border-(--main-color)/20 bg-(--main-color)/10 text-(--main-color) flex items-center justify-center group-hover:bg-(--main-color) group-hover:text-white transition-all">
                     <GoShieldCheck className="text-2xl" />
                   </div>
@@ -235,7 +237,7 @@ export default function ServiceDetailClient() {
                       0{index + 1}
                     </span>
 
-                    <h3 className="mt-3 text-xl font-black leading-relaxed">
+                    <h3 className="mt-2 text-xl font-black leading-relaxed">
                       {feature}
                     </h3>
                   </div>

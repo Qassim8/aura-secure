@@ -7,7 +7,6 @@ export default function PartnersSection({ bg }) {
   const locale = useLocale();
   const isRtl = locale === "ar";
 
-  // مصفوفة الـ 20 شريك كاملة
   const allPartners = [
     "/partner-01.png",
     "/partner-02.png",
@@ -73,9 +72,9 @@ export default function PartnersSection({ bg }) {
                     <Image
                       src={partner}
                       alt={`Partner ${row.id}-${i}`}
-                      width={100}
-                      height={40}
-                      className="object-contain max-h-full"
+                      width={60}
+                      height={30}
+                      className="object-contain w-20 md:w-28 h-28 md:h-36"
                     />
                   </div>
                 ))}
@@ -97,9 +96,9 @@ export default function PartnersSection({ bg }) {
                     <Image
                       src={partner}
                       alt={`Partner Clone ${row.id}-${i}`}
-                      width={100}
-                      height={40}
-                      className="object-contain max-h-full"
+                      width={60}
+                      height={30}
+                      className="object-contain w-20 md:w-28 h-28 md:h-36"
                     />
                   </div>
                 ))}

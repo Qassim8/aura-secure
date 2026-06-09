@@ -26,10 +26,10 @@ const FAQ = ({ t }) => {
           >
             <button
               onClick={() => setActiveFaq(isOpen ? null : idx)}
-              className="w-full p-5 flex items-center justify-between gap-4 text-start cursor-pointer select-none"
+              className="w-full p-2 md:p-5 flex items-center justify-between gap-4 text-start cursor-pointer select-none"
             >
               <span
-                className={`text-sm md:text-base font-black transition-colors duration-300 ${
+                className={`text-sm md:text-base font-bold md:font-black transition-colors duration-300 ${
                   isOpen ? "text-(--main-color)" : "text-(--primary-color)"
                 }`}
               >

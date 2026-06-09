@@ -18,7 +18,9 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
       </div>
 
       {/* RED GLOW */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-(--main-color)/20 blur-3xl" />
+      <div
+        className={`absolute top-0 ${isRtl ? "left-0" : "right-0"} w-125 h-125 bg-(--main-color)/20 blur-3xl`}
+      />
 
       <div className="container relative z-10">
         <div className="max-w-4xl">
@@ -27,7 +29,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
             <span className="w-16 h-px bg-(--main-color)" />
 
             <span className="text-(--main-color) uppercase tracking-[0.35em] text-xs font-black">
-              Aura Secure
+              {isRtl ? "اوراسيكيور" : "Aura Secure"}
             </span>
           </div>
 

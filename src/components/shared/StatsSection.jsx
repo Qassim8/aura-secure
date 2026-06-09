@@ -5,7 +5,6 @@ import { useInView, animate, motion } from "framer-motion";
 import { MdLayers, MdQueryBuilder, MdGroups, MdMap } from "react-icons/md";
 import { BiBriefcase } from "react-icons/bi";
 import { PiMapPinArea } from "react-icons/pi";
-import { LiaUsersCogSolid } from "react-icons/lia";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 function Counter({ from, to, duration = 2, bg }) {
@@ -38,7 +37,7 @@ export default function StatsSection({ bg }) {
 
   const stats = [
     {
-      target: 500,
+      target: 300,
       suffix: "+",
       label: t("Stats_4"),
       icon: <BiBriefcase />,
@@ -50,7 +49,7 @@ export default function StatsSection({ bg }) {
       icon: <MdQueryBuilder />,
     },
     {
-      target: 150,
+      target: 70,
       suffix: "+",
       label: t("Stats_8"),
       icon: <HiOutlineUserGroup />,

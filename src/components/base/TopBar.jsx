@@ -23,9 +23,7 @@ export default function TopBar() {
       className="w-full bg-linear-to-l from-gray-950 via-gray-800 to-gray-950 text-white/80 py-3 select-none text-xs md:text-base font-bold"
     >
       <div className="container mx-auto px-6 flex items-center justify-between gap-4">
-        {/* 📞 معلومات التواصل */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-          {/* رقم الهاتف */}
           <div className="flex items-center gap-1">
             <MdPhone className="text-(--main-color) text-sm shrink-0" />
             <a
@@ -45,10 +43,8 @@ export default function TopBar() {
             </a>
           </div>
 
-          {/* الفاصل البصري - تم تنعيم لونه ليكون شفافاً */}
           <div className="h-3 w-px bg-white/80 hidden sm:block"></div>
 
-          {/* البريد الإلكتروني */}
           <div className="flex items-center gap-2">
             <MdEmail className="text-(--main-color) text-sm shrink-0" />
             <a
@@ -60,10 +56,9 @@ export default function TopBar() {
           </div>
         </div>
 
-        {/* 🎯 زر طلب الخدمة / اتصل بنا السريع */}
         <Link
           href={`/${locale}/contact`}
-          className="group py-2 px-3 text-white bg-(--main-color) text-[11px] md:text-sm hover:bg-white hover:text-(--primary-color) shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2 shrink-0"
+          className="group py-2 px-2 md:px-3 text-white bg-(--main-color) text-[11px] md:text-sm hover:bg-white hover:text-(--primary-color) shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-1 md:gap-2 shrink-0"
         >
           <PiPhoneCallDuotone className="text-sm group-hover:scale-110 transition-transform duration-300" />
           <span>{t("contact")}</span>

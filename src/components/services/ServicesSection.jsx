@@ -24,6 +24,7 @@ export default function ServicesSection({ bg }) {
       desc: t("S1_Desc"),
       longDesc: t("S1_LongDesc"),
       images: ["/alarm-01.webp", "/alarm-02.webp"],
+      link: "fire-alarm-systems",
     },
     {
       id: "02",
@@ -32,6 +33,7 @@ export default function ServicesSection({ bg }) {
       desc: t("S2_Desc"),
       longDesc: t("S2_LongDesc"),
       images: ["/fire-system-01.webp", "/fire-system-02.webp"],
+      link: "fire-fighting-systems",
     },
     {
       id: "03",
@@ -40,6 +42,7 @@ export default function ServicesSection({ bg }) {
       desc: t("S3_Desc"),
       longDesc: t("S3_LongDesc"),
       images: ["/contract-01.webp", "/contract-02.webp"],
+      link: "maintenance-contracts",
     },
     {
       id: "04",
@@ -48,6 +51,7 @@ export default function ServicesSection({ bg }) {
       desc: t("S4_Desc"),
       longDesc: t("S4_LongDesc"),
       images: ["/camera-01.webp", "/camera-02.webp"],
+      link: "cctv-security-systems",
     },
     {
       id: "05",
@@ -56,6 +60,7 @@ export default function ServicesSection({ bg }) {
       desc: t("S5_Desc"),
       longDesc: t("S5_LongDesc"),
       images: ["/plans-01.webp", "/plans-02.webp"],
+      link: "safety-plans-engineering",
     },
   ];
 
