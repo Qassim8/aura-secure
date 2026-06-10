@@ -33,9 +33,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Aura Secure Logo"
-                width={120}
-                height={20}
-                className="max-w-full h-auto object-contain"
+                width={100}
+                height={0}
+                className="max-w-full max-h-full object-contain"
               />
             </Link>
             <p className="text-xs md:text-sm text-gray-300 font-medium leading-relaxed max-w-sm">

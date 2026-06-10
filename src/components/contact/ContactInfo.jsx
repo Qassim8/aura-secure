@@ -32,7 +32,7 @@ export default function ContactInfo() {
       icon: <MdPhoneInTalk />,
       title: t("info_phone_title"),
       desc: (
-        <div className="flex flex-col gap-1" dir="ltr">
+        <div className="flex flex-col gap-1" dir={locale}>
           <a
             href="tel:+966551622891"
             className="hover:text-(--main-color) transition-colors"
@@ -67,7 +67,7 @@ export default function ContactInfo() {
             {infoCards.map((card) => (
               <div
                 key={card.id}
-                className="group bg-gray-50/60 border border-gray-100 p-6 md:p-8 flex items-center gap-6 hover:bg-white hover:border-gray-200 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] transition-all duration-500"
+                className="group bg-gray-50/60 border border-gray-100 p-5 flex items-center gap-5 hover:bg-white hover:border-gray-200 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] transition-all duration-500"
               >
                 <div className="w-7 md:w-14 h-7 md:h-14 bg-(--primary-color) text-white group-hover:bg-(--main-color) flex items-center justify-center text-sm md:text-2xl shadow-md transition-colors duration-500 shrink-0">
                   {card.icon}

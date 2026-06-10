@@ -53,10 +53,9 @@ const Form = ({ t, isRtl }) => {
               className="group relative w-full md:w-auto px-5 md:px-12 py-4 bg-transparent text-(--main-color) border-2 border-(--main-color) overflow-hidden transition-all 
             duration-300 active:scale-95 shadow-xl hover:text-white hover:shadow-(--primary-color)/20 cursor-pointer"
             >
-              {/* طبقة الـ Hover التأثيرية باللون الأحمر المعتمد */}
               <span className="absolute inset-0 w-0 text-white bg-(--main-color) transition-all duration-500 group-hover:w-full"></span>
 
-              <span className="relative z-10 flex items-center justify-center gap-3 font-black text-xs uppercase md:tracking-[3px]">
+              <span className="relative z-10 flex items-center justify-center gap-3 font-black text-xs uppercase md:tracking-[2px]">
                 {t("Form_Btn")}
                 <MdSend
                   className={`text-base transition-transform duration-500 ${isRtl ? "rotate-180 group-hover:-translate-x-2" : "group-hover:translate-x-2"}`}
