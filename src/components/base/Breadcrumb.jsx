@@ -4,6 +4,7 @@ import React from "react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import Image from "next/image";
 
 export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
   const locale = useLocale();
@@ -11,15 +12,23 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
   const isRtl = locale === "ar";
 
   return (
-    <section className="relative overflow-hidden bg-(--primary-color) py-24 md:py-32">
-      {/* GRID */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-size-[60px_60px]" />
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="absolute top-0 left-0 w-full h-full bg-(--primary-color)/80 z-5"></div>
+
+      <div className="absolute top-0 left-0 w-full h-full z-0">
+        <Image
+          fill // يخبر Next.js أن الصورة تمتد لتملأ الأب تماماً بجودتها الكاملة
+          sizes="100vw" // يخبر المتصفح بالتعامل معها كعرض شاشة كاملة لضبط الـ Optimization
+          src="/b.jpg"
+          alt="breadcrumb background"
+          priority // لأنها في أعلى الصفحة (Header) لتسريع تحميلها وعرض جودتها فوراً
+          className="object-cover" // يحافظ على أبعاد الصورة ونسبها بدون تشويه (مط)
+        />
       </div>
 
       {/* RED GLOW */}
       <div
-        className={`absolute top-0 ${isRtl ? "left-0" : "right-0"} w-125 h-125 bg-(--main-color)/20 blur-3xl`}
+        className={`absolute top-0 ${isRtl ? "left-0" : "right-0"} w-125 h-125 bg-(--main-color)/20 blur-3xl z-10`}
       />
 
       <div className="container relative z-10">

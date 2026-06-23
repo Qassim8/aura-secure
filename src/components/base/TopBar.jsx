@@ -27,19 +27,11 @@ export default function TopBar() {
           <div className="flex items-center gap-1">
             <MdPhone className="text-(--main-color) text-sm shrink-0" />
             <a
-              href="tel:+966551622891"
+              href="tel:+966570114100"
               dir="ltr"
               className="hover:text-white hover:underline transition-all font-medium"
             >
-              {formatNumber("0551622891")}
-            </a>
-            <LuMinus />
-            <a
-              href="tel:+966551622891"
-              dir="ltr"
-              className="hover:text-white hover:underline transition-all font-medium"
-            >
-              {formatNumber("0551622891")}
+              {formatNumber("+966570114100")}
             </a>
           </div>
 
@@ -48,7 +40,7 @@ export default function TopBar() {
           <div className="flex items-center gap-2">
             <MdEmail className="text-(--main-color) text-sm shrink-0" />
             <a
-              href="mailto:info@orasecure.com"
+              href="mailto:info@orasecure.com.sa"
               className="hover:text-white hover:underline transition-all font-medium"
             >
               info@orasecure.com

@@ -25,7 +25,7 @@ export default function ContactInfo() {
       title: t("info_location_title"),
       desc: t("info_location_desc"),
       actionLabel: isRtl ? "توجيهات السير" : "Get Directions",
-      link: "https://maps.google.com/?q=Prince+Mohammed+bin+Abdulrahman+Rd+Al+Kharj+Rd+Riyadh",
+      link: "https://maps.app.goo.gl/EcwRq6tNNq6ZubVB9",
     },
     {
       id: "phones",
@@ -34,21 +34,15 @@ export default function ContactInfo() {
       desc: (
         <div className="flex flex-col gap-1" dir={locale}>
           <a
-            href="tel:+966551622891"
+            href="tel:+966570114100"
             className="hover:text-(--main-color) transition-colors"
           >
-            {formatNumber("+966 551622891")}
-          </a>
-          <a
-            href="tel:+966574265715"
-            className="hover:text-(--main-color) transition-colors"
-          >
-            {formatNumber("+966 574265715")}
+            {formatNumber("+966-570114100")}
           </a>
         </div>
       ),
       actionLabel: isRtl ? "اتصل الآن" : "Call Now",
-      link: "tel:+966551622891",
+      link: "tel:+966570114100",
     },
     {
       id: "hours",
@@ -104,8 +98,8 @@ export default function ContactInfo() {
             <div className="absolute inset-0 border-2 border-(--main-color) scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-20"></div>
 
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.877042564883!2d46.7410052!3d24.6278895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f067d5d30e38b%3A0xcd50bf8a77d1303d!2z2KfZhNiu2KfZhNiv2YrZgdiMINin2YTYsdmK2KfZhA!5e0!3m2!1sar!2ssa!4v1716000000000!5m2!1sar!2ssa"
-              className="w-full h-full min-h-112.5 lg:h-full border-0 md:grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3627.044453851912!2d46.7489796!3d24.622152699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0731a0765423%3A0xc186fbd52c4cc41f!2zT3Jhc2VjdXJlIC0g2KfZiNix2KfYs9mK2YPZitmI2LEg2YTYo9mG2LjZhdipINin2YTYs9mE2KfZhdipINmI2YXZg9in2YHYrdipINin2YTYrdix2KfYptmC!5e0!3m2!1sar!2seg!4v1782213208029!5m2!1sar!2seg"
+              className="w-full h-full min-h-112.5 lg:h-full border-0 opacity-90 group-hover:opacity-100 transition-all duration-700"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

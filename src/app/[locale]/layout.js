@@ -9,6 +9,8 @@ import FloatingActions from "@/components/base/FloatingActions";
 import StructuredData from "@/components/SEO/StructuredData";
 import { generatePageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import PageLoader from "@/components/base/PageLoader";
 
 const exo2 = Ubuntu({
   variable: "--font-exo2",
@@ -36,15 +38,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const locales = ["ar", "en"];
-  const ids = ["01", "02", "03", "04", "05"];
-
-  return locales.flatMap((locale) =>
-    ids.map((id) => ({
-      locale,
-      id,
-    })),
-  );
+  return [{ locale: "ar" }, { locale: "en" }];
 }
 
 export default async function RootLayout({ children, params }) {
@@ -68,6 +62,9 @@ export default async function RootLayout({ children, params }) {
       className={`${fontVariables} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Suspense fallback={null}>
+          <PageLoader />
+        </Suspense>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <StructuredData locale={locale} />
           <TopBar />

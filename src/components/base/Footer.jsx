@@ -11,7 +11,7 @@ export default function Footer() {
   const locale = useLocale();
   const isRtl = locale === "ar";
 
-  const phones = ["+966551622891", "+966574265715"];
+  const phones = ["+966570114100"];
 
   const formatNumber = (num) => {
     if (!isRtl) return num;
@@ -134,10 +134,10 @@ export default function Footer() {
                   <MdEmail className="text-sm" />
                 </div>
                 <a
-                  href="mailto:info@orasecure.com"
+                  href="mailto:info@orasecure.com.sa"
                   className="text-xs font-black text-gray-400 hover:text-white transition-colors truncate"
                 >
-                  info@orasecure.com
+                  info@orasecure.com.sa
                 </a>
               </div>
               <div className="flex items-center gap-3">
