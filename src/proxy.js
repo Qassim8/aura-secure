@@ -9,5 +9,3 @@ export default createMiddleware({
 export const config = {
   matcher: ["/", "/(ar|en)/:path*"],
 };
-
-export const runtime = "edge";
