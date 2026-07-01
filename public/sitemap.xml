@@ -153,7 +153,45 @@
 </url>
 
 <url>
+  <loc>https://www.orasecure.com.sa/en/services/fire-alarm-systems</loc>
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="ar"
+    href="https://www.orasecure.com.sa/ar/services/fire-alarm-systems"
+  />
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.orasecure.com.sa/en/services/fire-alarm-systems"
+  />
+
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
   <loc>https://www.orasecure.com.sa/ar/services/maintenance-contracts</loc>
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="ar"
+    href="https://www.orasecure.com.sa/ar/services/maintenance-contracts"
+  />
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.orasecure.com.sa/en/services/maintenance-contracts"
+  />
+
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.orasecure.com.sa/en/services/maintenance-contracts</loc>
 
   <xhtml:link
     rel="alternate"
@@ -191,6 +229,25 @@
 </url>
 
 <url>
+  <loc>https://www.orasecure.com.sa/en/services/cctv-security-systems</loc>
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="ar"
+    href="https://www.orasecure.com.sa/ar/services/cctv-security-systems"
+  />
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.orasecure.com.sa/en/services/cctv-security-systems"
+  />
+
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
   <loc>https://www.orasecure.com.sa/ar/services/safety-plans-engineering</loc>
 
   <xhtml:link
@@ -210,7 +267,45 @@
 </url>
 
 <url>
+  <loc>https://www.orasecure.com.sa/en/services/safety-plans-engineering</loc>
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="ar"
+    href="https://www.orasecure.com.sa/ar/services/safety-plans-engineering"
+  />
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.orasecure.com.sa/en/services/safety-plans-engineering"
+  />
+
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
   <loc>https://www.orasecure.com.sa/ar/services/fire-fighting-systems</loc>
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="ar"
+    href="https://www.orasecure.com.sa/ar/services/fire-fighting-systems"
+  />
+
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.orasecure.com.sa/en/services/fire-fighting-systems"
+  />
+
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.orasecure.com.sa/en/services/fire-fighting-systems</loc>
 
   <xhtml:link
     rel="alternate"
