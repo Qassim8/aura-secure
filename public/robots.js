@@ -4,7 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-
     sitemap: "https://www.orasecure.com.sa/sitemap.xml",
   };
 }

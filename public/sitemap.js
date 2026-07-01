@@ -15,6 +15,7 @@ export default function sitemap() {
     "/en/contact",
   ];
 
+  // عدّل القائمة حسب service ids الحقيقية عندك
   const services = [
     "fire-alarm-systems",
     "fire-fighting-systems",
@@ -24,13 +25,20 @@ export default function sitemap() {
   ];
 
   const servicePages = ["ar", "en"].flatMap((locale) =>
-    services.map((service) => `/${locale}/services/${service}`),
+    services.map((service) => ({
+      url: `${baseUrl}/${locale}/services/${service}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    })),
   );
 
-  return [...pages, ...servicePages].map((route) => ({
+  const staticPages = pages.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route.includes("/services/") ? "monthly" : "weekly",
-    priority: route === "/ar" || route === "/en" ? 1 : 0.9,
+    changeFrequency: "weekly",
+    priority: route === "/ar" || route === "/en" ? 1 : 0.8,
   }));
+
+  return [...staticPages, ...servicePages];
 }
