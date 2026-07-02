@@ -1,4 +1,4 @@
-import { Almarai, Open_Sans, Roboto, Ubuntu } from "next/font/google";
+import { Almarai, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { routing } from "@/i18n/navigation";
 import { NextIntlClientProvider } from "next-intl";
@@ -11,6 +11,7 @@ import { generatePageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import PageLoader from "@/components/base/PageLoader";
+import { SITE_URL } from "@/lib/url";
 
 const exo2 = Ubuntu({
   variable: "--font-exo2",
@@ -34,7 +35,15 @@ export const viewport = {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  return generatePageMetadata("home", locale, "https://orasecure.com");
+  const baseMetadata = await generatePageMetadata("home", locale, SITE_URL);
+  return {
+    ...baseMetadata,
+    icons: {
+      icon: "/icon.png",
+      shortcut: "/favicon.ico",
+      apple: "/apple-icon.png", // يفضل إضافتها لمتصفحات آبل
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -54,6 +63,7 @@ export default async function RootLayout({ children, params }) {
   const direction = locale === "ar" ? "rtl" : "ltr";
   const fontVariables =
     locale === "en" ? `${exo2.variable}` : `${almarai.variable}`;
+
   return (
     <html
       dir={direction}
@@ -66,11 +76,13 @@ export default async function RootLayout({ children, params }) {
           <PageLoader />
         </Suspense>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <StructuredData locale={locale} />
+          <StructuredData type="all" locale={locale} />
+
           <TopBar />
           <Navbar />
           <FloatingActions />
-          {children} <Footer />
+          {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,3 +1,5 @@
+import { SITE_URL } from "./url";
+
 export const seoData = {
   en: {
     home: {
@@ -19,23 +21,27 @@ export const seoData = {
         "safety engineering",
         "maintenance contracts",
         "security systems Riyadh",
+        "OraSecure",
+        "Ora Secure",
         "Aura Secure",
+        "AuraSecure",
       ],
 
-      ogTitle: "Aura Secure | Certified Fire Safety & Security Solutions",
+      ogTitle: "OraSecure | Certified Fire Safety & Security Solutions",
 
       ogDescription:
         "Integrated fire protection, CCTV, access control, and maintenance solutions for commercial, industrial, and residential facilities across Saudi Arabia.",
     },
 
     about: {
-      title: "About Aura Secure | Fire Safety & Security Experts",
+      title: "About OraSecure | Fire Safety & Security Experts",
 
       description:
-        "Learn about Aura Secure, a Saudi company specialized in fire protection, safety engineering, CCTV systems, and integrated security solutions with full compliance to Saudi Civil Defense regulations.",
+        "Learn about OraSecure, a Saudi company specialized in fire protection, safety engineering, CCTV systems, and integrated security solutions with full compliance to Saudi Civil Defense regulations.",
 
       keywords: [
-        "Aura Secure",
+        "OraSecure",
+        "Ora Secure",
         "fire safety company",
         "Saudi security company",
         "fire protection experts",
@@ -43,7 +49,7 @@ export const seoData = {
         "safety engineering company",
       ],
 
-      ogTitle: "About Aura Secure | Trusted Safety Engineering Company",
+      ogTitle: "About Ora Secure | Trusted Safety Engineering Company",
 
       ogDescription:
         "Professional fire safety and security engineering services designed to protect people, facilities, and investments across Saudi Arabia.",
@@ -53,7 +59,7 @@ export const seoData = {
       title: "Our Services | Fire Alarm, Fire Fighting & CCTV Solutions",
 
       description:
-        "Explore Aura Secure services including fire alarm systems, fire suppression systems, CCTV surveillance, access control, safety engineering, and maintenance contracts across Saudi Arabia.",
+        "Explore Ora Secure services including fire alarm systems, fire suppression systems, CCTV surveillance, access control, safety engineering, and maintenance contracts across Saudi Arabia.",
 
       keywords: [
         "fire alarm systems",
@@ -67,7 +73,7 @@ export const seoData = {
         "fire system maintenance",
       ],
 
-      ogTitle: "Aura Secure Services | Integrated Safety & Security Solutions",
+      ogTitle: "Ora Secure Services | Integrated Safety & Security Solutions",
 
       ogDescription:
         "Comprehensive safety and security solutions from design and installation to maintenance and technical support.",
@@ -75,10 +81,10 @@ export const seoData = {
 
     projects: {
       title:
-        "Aura Secure Projects | Fire Safety & Security Projects in Saudi Arabia",
+        "Ora Secure Projects | Fire Safety & Security Projects in Saudi Arabia",
 
       description:
-        "Explore Aura Secure’s portfolio of fire alarm systems, fire fighting systems, CCTV surveillance, maintenance contracts, and safety engineering projects across Saudi Arabia.",
+        "Explore Ora Secure’s portfolio of fire alarm systems, fire fighting systems, CCTV surveillance, maintenance contracts, and safety engineering projects across Saudi Arabia.",
 
       keywords: [
         "fire safety projects",
@@ -90,27 +96,27 @@ export const seoData = {
         "Aura Secure projects",
       ],
 
-      ogTitle: "Aura Secure Projects | Certified Safety & Security Solutions",
+      ogTitle: "Ora Secure Projects | Certified Safety & Security Solutions",
 
       ogDescription:
         "Discover our completed safety and security projects including fire alarms, suppression systems, surveillance, and maintenance solutions.",
     },
 
     contact: {
-      title: "Contact Aura Secure | Request Inspection & Technical Support",
+      title: "Contact Ora Secure | Request Inspection & Technical Support",
 
       description:
-        "Contact Aura Secure for technical inspections, quotations, maintenance contracts, and integrated fire safety and security solutions anywhere in Saudi Arabia.",
+        "Contact Ora Secure for technical inspections, quotations, maintenance contracts, and integrated fire safety and security solutions anywhere in Saudi Arabia.",
 
       keywords: [
-        "contact Aura Secure",
+        "contact Ora Secure",
         "technical inspection",
         "fire safety consultation",
         "security consultation",
         "maintenance support",
       ],
 
-      ogTitle: "Contact Aura Secure | Fire Safety & Security Support",
+      ogTitle: "Contact Ora Secure | Fire Safety & Security Support",
 
       ogDescription:
         "Get in touch with our engineers for inspections, quotations, and technical support services.",
@@ -244,7 +250,7 @@ export const seoData = {
 export function generatePageMetadata(
   pageKey,
   locale = "ar",
-  siteUrl = "https://orasecure.com",
+  siteUrl = SITE_URL,
 ) {
   const pageData = seoData[locale]?.[pageKey] || seoData.en[pageKey];
 
@@ -292,7 +298,7 @@ export function generatePageMetadata(
         },
       ],
 
-      siteName: "Aura Secure",
+      siteName: "Ora Secure",
     },
 
     twitter: {
@@ -316,7 +322,7 @@ export function generatePageMetadata(
 export function generateServiceMetadata(
   serviceId,
   locale = "ar",
-  siteUrl = "https://orasecure.com",
+  siteUrl = SITE_URL,
 ) {
   const servicesMeta = {
     en: {
@@ -446,12 +452,12 @@ export function generateServiceMetadata(
   const localeMeta = servicesMeta[locale] || servicesMeta.en;
 
   const meta = localeMeta[serviceId] || {
-    title: "Aura Secure Services",
+    title: "Ora Secure Services",
 
     description:
-      "Aura Secure provides integrated fire safety and security solutions.",
+      "Ora Secure provides integrated fire safety and security solutions.",
 
-    keywords: ["Aura Secure", "fire protection"],
+    keywords: ["Ora Secure", "fire protection"],
   };
 
   return {
@@ -486,7 +492,7 @@ export function generateServiceMetadata(
         },
       ],
 
-      siteName: "Aura Secure",
+      siteName: "Ora Secure",
     },
 
     twitter: {
@@ -511,7 +517,7 @@ export const faqSchema = {
       question: "What services does Aura Secure provide?",
 
       answer:
-        "Aura Secure provides fire alarm systems, fire suppression systems, CCTV surveillance, access control systems, maintenance contracts, and integrated safety engineering solutions across Saudi Arabia.",
+        "Ora Secure provides fire alarm systems, fire suppression systems, CCTV surveillance, access control systems, maintenance contracts, and integrated safety engineering solutions across Saudi Arabia.",
     },
 
     {

@@ -26,16 +26,16 @@
   "Home": {},
   "About": {
     "section_tag": "About",
-    "section_title": "Get to know Aura Secure",
+    "section_title": "Get to know Ora Secure",
     "history_title": "Our story and history",
-    "history_title_highlight": "Aura Secure",
-    "history_p1": "Aura Secure is your trusted partner for achieving the highest standards of security, safety, and fire protection. We believe protecting people and property is essential for business continuity and growth.",
+    "history_title_highlight": "Ora Secure",
+    "history_p1": "Ora Secure is your trusted partner for achieving the highest standards of security, safety, and fire protection. We believe protecting people and property is essential for business continuity and growth.",
     "history_p2": "Founded by a team of industry experts with over 20 years of cumulative experience, we provide comprehensive solutions from design to operation and maintenance.",
     "history_p3": "We have executed major projects across service and industrial sectors, implementing full fire protection and alarm systems including pumps, sprinklers, and advanced early-warning systems.",
     "exp_number": "+20",
     "exp_text": "Years of combined experience",
     "why_title": "Why choose",
-    "why_title_highlight": "Aura Secure?",
+    "why_title_highlight": "Ora Secure?",
     "feature_1_title": "Official certifications & compliance",
     "feature_1_desc": "We are officially certified by Saudi Civil Defense; our systems conform to UL, FM, SBC and NFPA standards.",
     "feature_2_title": "Strategic partnerships & quality",
@@ -98,7 +98,7 @@
   "Projects": {
     "Project_1": "Our Work",
     "Projects_1": "Our track record",
-    "Projects_2": "Approved Aura Secure projects",
+    "Projects_2": "Approved Ora Secure projects",
     "P_View": "View all projects",
     "filter_all": "All projects",
     "filter_commercial": "Commercial facilities",
@@ -136,7 +136,7 @@
   },
   "Testimonials": {
     "Testimonials_1": "Our clients' trust",
-    "Testimonials_2": "What they say about Aura Secure",
+    "Testimonials_2": "What they say about Ora Secure",
     "Testimonials_3": "08",
     "T1_Name": "Eng. Khalid Alotaibi",
     "T1_Job": "Project Manager - Real Estate Company",
@@ -187,6 +187,6 @@
     "Contact": "Contact",
     "contact_info_title": "Quick contact",
     "footer_address": "Riyadh, Kingdom of Saudi Arabia",
-    "Footer_Rights": "© 2026 Aura Secure. All rights reserved."
+    "Footer_Rights": "© 2026 Ora Secure. All rights reserved."
   }
 }

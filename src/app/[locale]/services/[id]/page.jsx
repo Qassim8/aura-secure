@@ -1,19 +1,17 @@
 import React from "react";
 import ServiceDetailClient from "./ServiceDetailClient";
-
 import { generateServiceMetadata } from "@/lib/seo";
-
 import StructuredData from "@/components/SEO/StructuredData";
+import { SITE_URL } from "@/lib/url";
 
 export async function generateMetadata({ params }) {
   const { locale, id } = await params;
-
-  return generateServiceMetadata(id, locale, "https://orasecure.com");
+  // تم تعديل الرابط الثابت هنا ليعتمد على SITE_URL لتوحيد الـ Canonical URL في قوقل
+  return generateServiceMetadata(id, locale, SITE_URL);
 }
 
 export async function generateStaticParams() {
   const locales = ["ar", "en"];
-
   const ids = [
     "fire-alarm-systems",
     "fire-fighting-systems",
@@ -33,37 +31,29 @@ export async function generateStaticParams() {
 export default async function ServiceDetailPage({ params }) {
   const { locale, id } = await params;
 
-  const meta = generateServiceMetadata(id, locale, "https://orasecure.com");
-
-  const service = {
-    name: meta.title,
-    description: meta.description,
-  };
+  const meta = await generateServiceMetadata(id, locale, SITE_URL);
 
   const breadcrumb = [
     {
       name: locale === "ar" ? "الرئيسية" : "Home",
-
-      url: `https://orasecure.com/${locale}`,
+      url: `${SITE_URL}/${locale}`,
     },
-
     {
       name: locale === "ar" ? "خدماتنا" : "Services",
-
-      url: `https://orasecure.com/${locale}/services`,
+      url: `${SITE_URL}/${locale}/services`,
     },
-
     {
-      name: meta.title,
-
-      url: `https://orasecure.com/${locale}/services/${id}`,
+      name: meta.title || "",
+      url: `${SITE_URL}/${locale}/services/${id}`,
     },
   ];
 
   return (
     <>
+      {/* تم التعديل هنا ليمرر الـ serviceSlug مباشرة والـ type="service" لمنع تكرار بيانات المنظمة */}
       <StructuredData
-        service={service}
+        type="service"
+        serviceSlug={id}
         breadcrumb={breadcrumb}
         locale={locale}
       />

@@ -17,12 +17,12 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
 
       <div className="absolute top-0 left-0 w-full h-full z-0">
         <Image
-          fill // يخبر Next.js أن الصورة تمتد لتملأ الأب تماماً بجودتها الكاملة
-          sizes="100vw" // يخبر المتصفح بالتعامل معها كعرض شاشة كاملة لضبط الـ Optimization
+          fill
+          sizes="100vw"
           src="/b.jpg"
           alt="breadcrumb background"
-          priority // لأنها في أعلى الصفحة (Header) لتسريع تحميلها وعرض جودتها فوراً
-          className="object-cover" // يحافظ على أبعاد الصورة ونسبها بدون تشويه (مط)
+          priority
+          className="object-cover"
         />
       </div>
 
@@ -86,7 +86,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
       </div>
 
       {/* BOTTOM LINE */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-(--main-color)/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-(--main-color)/40 to-transparent" />
     </section>
   );
 }

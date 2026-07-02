@@ -7,6 +7,7 @@ import PartnersSection from "@/components/shared/Partners";
 import StatsSection from "@/components/shared/StatsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import { generatePageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/url";
 
 export default function Home() {
   return (
@@ -25,5 +26,5 @@ export default function Home() {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  return generatePageMetadata("home", locale, "https://orasecure.com");
+  return generatePageMetadata("home", locale, SITE_URL);
 }

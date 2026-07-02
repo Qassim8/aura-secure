@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/url";
 import ContactClient from "./contact-client";
 import { generatePageMetadata } from "@/lib/seo";
 
@@ -7,5 +8,5 @@ export default function ContactPage() {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  return generatePageMetadata("contact", locale, "https://orasecure.com");
+  return generatePageMetadata("contact", locale, SITE_URL);
 }

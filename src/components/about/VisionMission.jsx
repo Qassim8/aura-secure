@@ -16,9 +16,7 @@ export default function VisionMissionSection({ bg }) {
       dir={isRtl ? "rtl" : "ltr"}
     >
       <div className="container">
-        {/* شبكة العرض الاحترافية - انقسام الكتلتين بتناغم مذهل */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {/* 👁️ الكتلة الأولى: رؤيتنا (باللون الأزرق الفخم الكامل) */}
           <motion.div
             initial={{ opacity: 0, x: isRtl ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}

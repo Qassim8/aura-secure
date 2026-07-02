@@ -71,7 +71,7 @@ export default function HeroSection() {
               <div className="flex flex-col justify-center items-start text-start h-full md:w-1/2">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-(--main-color) w-fit px-2 py-1 md:px-4 md:py-2 mb-5 shadow-lg shadow-(--main-color)/20">
-                  <MdVerified className="text-white text-xs text-sm" />
+                  <MdVerified className="text-white text-xs md:text-sm" />
                   <span className="text-[10px] font-black uppercase md:tracking-widest">
                     {t("badge")}
                   </span>
