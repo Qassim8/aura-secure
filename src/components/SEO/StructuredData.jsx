@@ -167,8 +167,24 @@ export default function StructuredData({
           "@type": "Country",
           name: locale === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia",
         },
+        // 🛠️ تحديث الـ provider لحل المشاكل الأربعة وتضمين البيانات بالكامل
         provider: {
+          "@type": "LocalBusiness",
           "@id": `${siteUrl}/#organization`,
+          name:
+            locale === "ar"
+              ? "أوراسيكيور لأنظمة السلامة"
+              : "OraSecure Safety Systems",
+          url: siteUrl,
+          telephone: "+966570114100", // حل تنبيه الهاتف
+          priceRange: "$$", // حل تنبيه النطاق السعري
+          image: `${siteUrl}/logo.png`, // حل تنبيه الصورة (تأكد من وجود شعار بهذا المسار)
+          address: {
+            // حل تنبيه العنوان
+            "@type": "PostalAddress",
+            addressCountry: "SA",
+            addressRegion: locale === "ar" ? "الرياض" : "Riyadh",
+          },
         },
         brand: {
           "@type": "Brand",
