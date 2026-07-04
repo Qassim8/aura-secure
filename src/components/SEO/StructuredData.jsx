@@ -112,6 +112,56 @@ export default function StructuredData({
         availableLanguage: ["Arabic", "English"],
       },
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9", // متوسط التقييم الإجمالي للموقع
+      reviewCount: "24", // إجمالي عدد العملاء الذين قيموا الشركة
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "سارة القحطاني",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody:
+          "من أفضل الشركات التي تعاملنا معها في تنفيذ مخططات السلامة. دقة في التفاصيل وفهم عميق لكود البناء السعودي.",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "المهندس عبد العزيز الرويلي",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody:
+          "تم تصميم وتركيب شبكة إطفاء متكاملة لمستودعاتنا بدقة متناهية. الالتزام بمعايير السلامة العالمية وسرعة الاستجابة جعلتهم خيارنا الأول دائماً.",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "د. نورة الشمري",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody: "تجربة ممتازة واحترافية في التعامل والالتزام بالمواعيد.",
+      },
+    ],
   };
 
   // 2. WEBSITE SCHEMA
