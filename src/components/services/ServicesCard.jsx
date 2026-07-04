@@ -9,15 +9,15 @@ import Image from "next/image";
 const ServicesCard = ({ service }) => {
   const [open, setOpen] = useState(false);
   const locale = useLocale();
+  const isRtl = locale === "ar";
   const t = useTranslations("Services");
 
-  const slug =
-    service.id ||
-    service.slug ||
-    service.title?.toLowerCase().replace(/\s+/g, "-");
+  const baseAltText = isRtl
+    ? `${service.title} معتمد في السعودية - أوراسيكيور`
+    : `${service.title} Certified in KSA - OraSecure`;
 
   return (
-    <div className="group relative p-5 md:p-12 border-b border-l border-(--title-color)/5 transition-all duration-500 hover:bg-(--primary-color)/95 overflow-hidden">
+    <div className="group relative p-5 md:p-12 border-b border-l border-(--title-color)/5 transition-all duration-500 hover:bg-(--primary-color)/95 overflow-hidden flex flex-col justify-between">
       <div className="absolute -bottom-6 -right-6 text-9xl text-(--title-color)/4 group-hover:text-white/5 transition-colors">
         {service.icon}
       </div>
@@ -28,24 +28,36 @@ const ServicesCard = ({ service }) => {
             {service.icon}
           </div>
 
-          <h3 className="text-lg md:text-2xl font-black text-(--primary-color) mb-2 group-hover:text-white transition-colors uppercase leading-none">
-            {service.title}
+          <h3 className="text-lg md:text-2xl font-black text-(--primary-color) mb-2 group-hover:text-white transition-colors uppercase leading-tight">
+            <Link
+              href={`/${locale}/services/${service.link}`}
+              className="hover:underline"
+            >
+              {service.title}
+            </Link>
           </h3>
 
           <p className="text-sm text-(--alt-color) leading-relaxed group-hover:text-white/70 transition-colors">
             {service.desc}
           </p>
-
-          <div className="mt-4 flex items-center gap-4">
-            <button
-              onClick={() => setOpen(true)}
-              className="text-(--main-color) flex items-center gap-2 text-sm  border-none cursor-pointer group-hover:text-white transition-colors duration-300 z-30"
-            >
-              {t("view_more")}
-              <MdArrowForward />
-            </button>
-          </div>
         </div>
+      </div>
+
+      <div className="mt-6 flex items-center gap-4 relative z-30">
+        <Link
+          href={`/${locale}/services/${service.link}`}
+          className="text-(--main-color) flex items-center gap-2 text-sm font-bold group-hover:text-white transition-colors duration-300"
+        >
+          {t("view_more")}
+          <MdArrowForward className={`${isRtl ? "rotate-180" : ""}`} />
+        </Link>
+
+        <button
+          onClick={() => setOpen(true)}
+          className="text-xs text-gray-400 group-hover:text-gray-200 underline cursor-pointer ml-auto"
+        >
+          {isRtl ? "تفاصيل سريعة" : "Quick View"}
+        </button>
       </div>
 
       {open && (
@@ -55,41 +67,41 @@ const ServicesCard = ({ service }) => {
             onClick={() => setOpen(false)}
           />
 
-          <div className="relative bg-white shadow-xl max-w-xl w-full mx-4 z-10 overflow-y-scroll md:overflow-y-auto h-[70vh] md:h-auto">
-            <div className="sticky top-0 bg-white flex justify-between items-start p-4">
-              <h4 className="text-xl font-black text-(--primary-color)">
+          <div className="relative bg-white shadow-xl max-w-xl w-full mx-4 z-10 overflow-y-auto max-h-[85vh]">
+            <div className="sticky top-0 bg-white flex justify-between items-start p-4 border-b border-b-gray-300 z-10">
+              <h3 className="text-xl font-black text-(--primary-color)">
                 {service.title}
-              </h4>
+              </h3>
               <button
                 onClick={() => setOpen(false)}
-                className="text-gray-500 cursor-pointer"
+                className="text-gray-500 cursor-pointer p-1 hover:bg-gray-100 rounded"
               >
-                <CgClose />
+                <CgClose size={20} />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-              <div className="w-full h-36 md:h-60 bg-gray-100 overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+              <div className="w-full h-36 md:h-48 bg-gray-100 overflow-hidden relative">
                 {service.images && service.images[0] ? (
                   <Image
-                    width={250}
-                    height={250}
+                    fill
                     src={service.images[0]}
-                    alt="img1"
-                    className="w-full h-full object-cover"
+                    alt={`${baseAltText} - صورة رقم 1`}
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200" />
                 )}
               </div>
-              <div className="w-full h-36 md:h-60 bg-gray-100 overflow-hidden">
+              <div className="w-full h-36 md:h-48 bg-gray-100 overflow-hidden relative">
                 {service.images && service.images[1] ? (
                   <Image
-                    width={250}
-                    height={250}
+                    fill
                     src={service.images[1]}
-                    alt="img2"
-                    className="w-full h-full object-cover"
+                    alt={`${baseAltText} - صورة رقم 2`}
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200" />
@@ -97,17 +109,17 @@ const ServicesCard = ({ service }) => {
               </div>
             </div>
 
-            <div className="text-sm md:text-base text-(--alt-color) leading-relaxed p-4">
+            <div className="text-sm md:text-base text-(--alt-color) leading-relaxed p-4 font-medium">
               {service.longDesc}
             </div>
 
-            <div className="p-4">
+            <div className="pb-4 ps-4 bg-gray-50 flex justify-start">
               <Link
                 href={`/${locale}/services/${service.link}`}
-                className="text-white bg-(--main-color) flex justify-center items-center gap-2 text-sm py-2 group-hover:text-white transition-colors duration-300 z-30"
+                className="text-white bg-(--main-color) flex justify-center items-center gap-2 text-sm px-6 py-2.5 font-bold shadow-md hover:bg-(--primary-color) transition-colors duration-300"
               >
                 {t("view_more")}
-                <MdArrowForward />
+                <MdArrowForward className={`${isRtl ? "rotate-180" : ""}`} />
               </Link>
             </div>
           </div>

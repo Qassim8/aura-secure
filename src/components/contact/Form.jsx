@@ -1,7 +1,9 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import { MdSend } from "react-icons/md";
 
-const Form = ({ t, isRtl }) => {
+const Form = ({ isRtl }) => {
+  const t = useTranslations("Contact");
   return (
     <div id="contact">
       <div className="absolute inset-0 bg-(--primary-color) translate-x-4 translate-y-4 -z-10 opacity-5"></div>

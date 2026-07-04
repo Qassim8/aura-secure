@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { useInView, animate, motion } from "framer-motion";
-import { MdLayers, MdQueryBuilder, MdGroups, MdMap } from "react-icons/md";
+import { MdQueryBuilder } from "react-icons/md";
 import { BiBriefcase } from "react-icons/bi";
 import { PiMapPinArea } from "react-icons/pi";
 import { HiOutlineUserGroup } from "react-icons/hi";
@@ -112,9 +112,9 @@ export default function StatsSection({ bg }) {
                     </span>
                   </div>
 
-                  <h4 className="text-xs md:text-sm font-bold text-gray-500 group-hover:text-(--main-color) transition-colors duration-300 tracking-wide">
+                  <h3 className="text-xs md:text-sm font-bold text-gray-500 group-hover:text-(--main-color) transition-colors duration-300 tracking-wide">
                     {stat.label}
-                  </h4>
+                  </h3>
                 </div>
               </motion.div>
             ))}

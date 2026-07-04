@@ -11,7 +11,7 @@ export default function TopBar() {
   const locale = useLocale();
   const isRtl = locale === "ar";
 
-  // دالة تنسيق الأرقام لضمان انضباط الاتجاه
+  // دالة تنسيق الأرقام لضمان انضباط الاتجاه وثبات الهيكلية النصية
   const formatNumber = (num) => {
     if (!isRtl) return num;
     return `\u202D${num.replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d])}\u202C`;
@@ -24,26 +24,41 @@ export default function TopBar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between gap-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+          {/* رابط الهاتف مضاف له زحف اتصال مباشر وآمن */}
           <div className="flex items-center gap-1">
-            <MdPhone className="text-(--main-color) text-sm shrink-0" />
+            <MdPhone
+              className="text-(--main-color) text-sm shrink-0"
+              aria-hidden="true"
+            />
             <a
               href="tel:+966570114100"
               dir="ltr"
               className="hover:text-white hover:underline transition-all font-medium"
+              title={isRtl ? "اتصل بنا هاتفياً" : "Call us directly"}
             >
               {formatNumber("+966570114100")}
             </a>
           </div>
 
-          <div className="h-3 w-px bg-white/80 hidden sm:block"></div>
+          <div
+            className="h-3 w-px bg-white/80 hidden sm:block"
+            aria-hidden="true"
+          ></div>
 
+          {/* تصحيح رابط البريد وتوحيد النطاق لعدم إرباك محركات البحث */}
           <div className="flex items-center gap-2">
-            <MdEmail className="text-(--main-color) text-sm shrink-0" />
+            <MdEmail
+              className="text-(--main-color) text-sm shrink-0"
+              aria-hidden="true"
+            />
             <a
               href="mailto:info@orasecure.com.sa"
               className="hover:text-white hover:underline transition-all font-medium"
+              title={
+                isRtl ? "راسلنا عبر البريد الإلكتروني" : "Send us an email"
+              }
             >
-              info@orasecure.com
+              info@orasecure.com.sa
             </a>
           </div>
         </div>
@@ -52,7 +67,10 @@ export default function TopBar() {
           href={`/${locale}/contact`}
           className="group py-2 px-2 md:px-3 text-white bg-(--main-color) text-[11px] md:text-sm hover:bg-white hover:text-(--primary-color) shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-1 md:gap-2 shrink-0"
         >
-          <PiPhoneCallDuotone className="text-sm group-hover:scale-110 transition-transform duration-300" />
+          <PiPhoneCallDuotone
+            className="text-sm group-hover:scale-110 transition-transform duration-300"
+            aria-hidden="true"
+          />
           <span>{t("contact")}</span>
         </Link>
       </div>

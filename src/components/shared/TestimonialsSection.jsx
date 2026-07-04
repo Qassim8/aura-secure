@@ -21,19 +21,68 @@ export default function TestimonialsSection({ bg }) {
   const isRtl = locale === "ar";
 
   const feedback = [
-    { name: t("T1_Name"), job: t("T1_Job"), text: t("T1_Text") },
-    { name: t("T2_Name"), job: t("T2_Job"), text: t("T2_Text") },
-    { name: t("T3_Name"), job: t("T3_Job"), text: t("T3_Text") },
-    { name: t("T2_Name"), job: t("T2_Job"), text: t("T2_Text") },
-    { name: t("T3_Name"), job: t("T3_Job"), text: t("T3_Text") },
+    {
+      id: "review-1",
+      name: t("T1_Name"),
+      job: t("T1_Job"),
+      text: t("T1_Text"),
+    },
+    {
+      id: "review-2",
+      name: t("T2_Name"),
+      job: t("T2_Job"),
+      text: t("T2_Text"),
+    },
+    {
+      id: "review-3",
+      name: t("T3_Name"),
+      job: t("T3_Job"),
+      text: t("T3_Text"),
+    },
+    {
+      id: "review-4",
+      name: t("T4_Name") || t("T2_Name"),
+      job: t("T4_Job") || t("T2_Job"),
+      text: t("T4_Text") || t("T2_Text"),
+    },
+    {
+      id: "review-5",
+      name: t("T5_Name") || t("T3_Name"),
+      job: t("T5_Job") || t("T3_Job"),
+      text: t("T5_Text") || t("T3_Text"),
+    },
   ];
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: isRtl ? "أوراسيكيور لأنظمة السلامة" : "OraSecure Fire Safety",
+    review: feedback.map((item) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: item.name,
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      reviewBody: item.text,
+    })),
+  };
 
   return (
     <section
       className={`py-20 ${bg} relative overflow-hidden`}
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <div className="container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
+      <div className="container mx-auto px-6">
         <MainTitle title={t("Testimonials_1")} subtitle={t("Testimonials_2")} />
 
         <div className="mt-16 relative">
@@ -65,10 +114,10 @@ export default function TestimonialsSection({ bg }) {
             navigation={{ nextEl: ".next-btn", prevEl: ".prev-btn" }}
             className="pb-20 overflow-visible!"
           >
-            {feedback.map((item, index) => (
-              <SwiperSlide key={index}>
+            {feedback.map((item) => (
+              <SwiperSlide key={item.id}>
                 {({ isActive }) => (
-                  <div
+                  <blockquote
                     className={`relative p-5 md:p-10 bg-[#fcfcfc] transition-all duration-700 h-full border-e-8 ${
                       isActive
                         ? "opacity-100 scale-100 shadow-lg border-(--main-color)"
@@ -77,9 +126,13 @@ export default function TestimonialsSection({ bg }) {
                   >
                     <MdFormatQuote
                       className={`absolute top-1 md:top-4 ${isRtl ? "left-2 md:left-4" : "right-2 md:right-4"} text-7xl text-(--primary-color)/10`}
+                      aria-hidden="true"
                     />
 
-                    <div className="flex gap-1 mb-6">
+                    <div
+                      className="flex gap-1 mb-6"
+                      aria-label="5 stars rating"
+                    >
                       {[...Array(5)].map((_, i) => (
                         <MdStar
                           key={i}
@@ -97,15 +150,17 @@ export default function TestimonialsSection({ bg }) {
                         {item.name.charAt(0)}
                       </div>
                       <div className={isRtl ? "text-right" : "text-left"}>
-                        <h4 className="text-sm md:text-base font-black text-(--title-color) uppercase md:tracking-tighter">
-                          {item.name}
-                        </h4>
-                        <span className="text-[10px] md:text-[11px] font-mono text-(--alt-color) uppercase md:tracking-[3px]">
+                        <cite className="not-italic block">
+                          <h4 className="text-sm md:text-base font-black text-(--title-color) uppercase md:tracking-tighter">
+                            {item.name}
+                          </h4>
+                        </cite>
+                        <span className="text-[10px] md:text-[11px] font-mono text-(--alt-color) uppercase md:tracking-[3px] block mt-1">
                           {item.job}
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </blockquote>
                 )}
               </SwiperSlide>
             ))}
@@ -113,14 +168,20 @@ export default function TestimonialsSection({ bg }) {
 
           <div className="flex flex-row justify-between items-center mt-10">
             <div className="flex gap-3">
-              <button className="prev-btn cursor-pointer w-7 md:w-10 h-7 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
+              <button
+                className="prev-btn cursor-pointer w-8 md:w-10 h-8 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative"
+                aria-label={isRtl ? "المراجعة التالية" : "Next review"}
+              >
                 {isRtl ? (
                   <MdArrowForward className="text-base md:text-xl" />
                 ) : (
                   <MdArrowBack className="text-base md:text-xl" />
                 )}
               </button>
-              <button className="next-btn cursor-pointer w-7 md:w-10 h-7 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative">
+              <button
+                className="next-btn cursor-pointer w-8 md:w-10 h-8 md:h-10 border border-(--title-color)/10 flex items-center justify-center text-(--title-color) hover:bg-(--primary-color) hover:text-white transition-all z-20 relative"
+                aria-label={isRtl ? "المراجعة السابقة" : "Previous review"}
+              >
                 {isRtl ? (
                   <MdArrowBack className="text-base md:text-xl" />
                 ) : (

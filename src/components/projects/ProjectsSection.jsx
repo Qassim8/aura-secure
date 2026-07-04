@@ -34,6 +34,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
   const allProjects = [
     {
       id: "01",
+      slug: "industrial-safety-project-1",
       category: "industrial",
       title: t("P1_Title"),
       type: t("P1_Type"),
@@ -42,6 +43,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "02",
+      slug: "commercial-fire-alarm-project",
       category: "commercial",
       title: t("P2_Title"),
       type: t("P2_Type"),
@@ -50,6 +52,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "03",
+      slug: "fire-system-maintenance-project",
       category: "maintenance",
       title: t("P3_Title"),
       type: t("P3_Type"),
@@ -58,6 +61,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "04",
+      slug: "industrial-fire-fighting-installation",
       category: "industrial",
       title: t("P4_Title"),
       type: t("P4_Type"),
@@ -66,6 +70,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "05",
+      slug: "commercial-safety-systems-mall",
       category: "commercial",
       title: t("P5_Title"),
       type: t("P5_Type"),
@@ -74,6 +79,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "06",
+      slug: "commercial-safety-complex",
       category: "commercial",
       title: t("P6_Title"),
       type: t("P6_Type"),
@@ -82,6 +88,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "07",
+      slug: "annual-maintenance-contract-project",
       category: "maintenance",
       title: t("P7_Title"),
       type: t("P7_Type"),
@@ -90,6 +97,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
     },
     {
       id: "08",
+      slug: "factory-fire-suppression-system",
       category: "industrial",
       title: t("P8_Title"),
       type: t("P8_Type"),
@@ -97,6 +105,7 @@ export default function ProjectsSection({ bg, isPage = false }) {
       size: "lg:col-span-1 lg:row-span-1",
     },
   ];
+
   const displayedProjects = !isPage
     ? allProjects.slice(0, 5)
     : activeFilter === "all"
@@ -106,7 +115,6 @@ export default function ProjectsSection({ bg, isPage = false }) {
   return (
     <section className={`py-20 relative ${bg}`} dir={isRtl ? "rtl" : "ltr"}>
       <div className="container mx-auto px-6">
-        {/* العناوين الرئيسية */}
         <MainTitle
           title={t("Projects_1")}
           subtitle={t("Projects_2")}
@@ -144,36 +152,44 @@ export default function ProjectsSection({ bg, isPage = false }) {
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px] ${isPage ? "mt-6" : "mt-16"}`}
         >
           <AnimatePresence mode="popLayout">
-            {displayedProjects.map((project) => (
-              <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                key={project.id}
-                className={`group relative overflow-hidden bg-(--primary-color) border border-gray-100 shadow-sm ${project.size}`}
-              >
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  loading="lazy"
-                  className="object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 opacity-75 group-hover:opacity-95"
-                />
+            {displayedProjects.map((project) => {
+              const projectAlt = isRtl
+                ? `تنفيذ وتصميم ${project.title} - أنظمة السلامة ومكافحة الحرائق بالسعودية من أوراسيكيور`
+                : `${project.title} Execution - Fire Safety & Fighting Systems KSA by OraSecure`;
 
-                <div className="absolute inset-0 bg-linear-to-t from-(--primary-color) via-(--primary-color)/40 to-transparent md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 md:p-8">
-                  <h3 className="text-lg md:text-xl font-black text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 leading-tight">
-                    {project.title}
-                  </h3>
+              return (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  key={project.id}
+                  className={`group relative overflow-hidden bg-(--primary-color) border border-gray-100 shadow-sm ${project.size}`}
+                >
+                  <div className="block w-full h-full relative z-10">
+                    <Image
+                      src={project.img}
+                      alt={projectAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      loading="lazy"
+                      className="object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 opacity-75 group-hover:opacity-95"
+                    />
 
-                  <p className="text-[10px] md:text-xs text-(--main-color) font-black uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                    {project.type}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                    <div className="absolute inset-0 bg-linear-to-t from-(--primary-color) via-(--primary-color)/40 to-transparent md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 md:p-8">
+                      <h3 className="text-lg md:text-xl font-black text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 leading-tight">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-[10px] md:text-xs text-(--main-color) font-black uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                        {project.type}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 

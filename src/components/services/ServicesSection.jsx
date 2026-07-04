@@ -1,17 +1,19 @@
 "use client";
-import React from "react";
-import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import MainTitle from "../base/MainTitle";
 import {
-  MdFireExtinguisher,
   MdNotificationsActive,
   MdSettingsSuggest,
-  MdVideocam,
   MdArchitecture,
+  MdArrowForward,
 } from "react-icons/md";
-import ServicesCard from "./ServicesCard";
 import { FaFireExtinguisher } from "react-icons/fa6";
 import { PiSecurityCameraFill } from "react-icons/pi";
+import { CgClose } from "react-icons/cg";
+import Image from "next/image";
+import Link from "next/link";
+import ServicesCard from "./ServicesCard";
 
 export default function ServicesSection({ bg }) {
   const t = useTranslations("Services");
@@ -32,7 +34,7 @@ export default function ServicesSection({ bg }) {
       title: t("S2_Title"),
       desc: t("S2_Desc"),
       longDesc: t("S2_LongDesc"),
-      images: ["/fire-system-01.webp", "/fire-system-02.webp"],
+      images: ["/fire-pumb1.webp", "/fire-pump.png"],
       link: "fire-fighting-systems",
     },
     {

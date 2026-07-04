@@ -39,8 +39,18 @@ export default function PartnersSection({ bg }) {
     { id: "bottom-row", data: row2, isDefaultReverse: true },
   ];
 
+  const altText = isRtl
+    ? "شريك نجاح أوراسيكيور - اعتمادات الدفاع المدني السعودي وكود البناء SBC"
+    : "OraSecure Success Partner - Certified Fire Safety & Protection Systems KSA";
+
   return (
     <section className={`py-14 overflow-hidden select-none relative ${bg}`}>
+      <h2 className="sr-only">
+        {isRtl
+          ? "شركاء نجاح أوراسيكيور في أنظمة السلامة ومكافحة الحرائق"
+          : "OraSecure Success Partners in Fire Fighting & Safety Systems"}
+      </h2>
+
       <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-white to-transparent z-10 pointer-events-none"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
@@ -56,7 +66,6 @@ export default function PartnersSection({ bg }) {
               className="relative overflow-hidden flex whitespace-nowrap"
               dir="ltr"
             >
-              {/* المجموعة الأولى الشغالة */}
               <div
                 className={`flex items-center gap-6 md:gap-12 shrink-0 pr-12 ${
                   shouldReverseAnimation
@@ -71,7 +80,7 @@ export default function PartnersSection({ bg }) {
                   >
                     <Image
                       src={partner}
-                      alt={`Partner ${row.id}-${i}`}
+                      alt={`${altText} - ${i + 1}`}
                       width={60}
                       height={30}
                       className="object-contain w-20 md:w-28 h-28 md:h-36"
@@ -95,7 +104,7 @@ export default function PartnersSection({ bg }) {
                   >
                     <Image
                       src={partner}
-                      alt={`Partner Clone ${row.id}-${i}`}
+                      alt=""
                       width={60}
                       height={30}
                       className="object-contain w-20 md:w-28 h-28 md:h-36"

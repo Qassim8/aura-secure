@@ -133,12 +133,20 @@ export default function StructuredData({
       ? {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          itemListElement: breadcrumb.map((b, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            name: b.name,
-            item: b.url,
-          })),
+          itemListElement: breadcrumb.map((b, i) => {
+            // التحقق مما إذا كان الرابط مطلقاً بالفعل، وإلا نقوم بدمجه مع النطاق الأساسي
+            const absoluteUrl =
+              b.url && b.url.startsWith("http")
+                ? b.url
+                : `${SITE_URL}${b.url || ""}`;
+
+            return {
+              "@type": "ListItem",
+              position: i + 1,
+              name: b.name,
+              item: absoluteUrl, // الرابط المطلق الآمن تماماً لجوجل
+            };
+          }),
         }
       : null;
 

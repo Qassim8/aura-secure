@@ -43,10 +43,6 @@ export default function PageLoader() {
             />
           </div>
         </div>
-
-        <div className="h-0.5 w-36 overflow-hidden rounded-full bg-white/5 relative">
-          <div className="h-full bg-(--main-color) animate-progress-loading shadow-[0_0_8px_var(--main-color)]"></div>
-        </div>
       </div>
 
       <style jsx global>{`

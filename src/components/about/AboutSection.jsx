@@ -1,13 +1,27 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import MainTitle from "../base/MainTitle";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 
 export default function AboutSection({ bg }) {
   const t = useTranslations("About");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
   const [history, setHistory] = React.useState(false);
+
+  const img1Alt = isRtl
+    ? "أنظمة إطفاء الحرائق المعتمدة من الدفاع المدني السعودي - أوراسيكيور"
+    : "Certified fire fighting systems by Saudi Civil Defense - OraSecure";
+
+  const img2Alt = isRtl
+    ? "تركيب صيانة أنظمة إنذار الحرائق وكود البناء السعودي SBC"
+    : "Installation & maintenance of fire alarm systems complying with SBC code";
+
+  const img3Alt = isRtl
+    ? "مهندسو أوراسيكيور لتصميم مخططات الأمن والسلامة"
+    : "OraSecure engineers designing safety and security plans";
 
   return (
     <section className={`py-20 overflow-hidden bg-${bg}`}>
@@ -19,7 +33,7 @@ export default function AboutSection({ bg }) {
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/about-01.png"
-                alt={t("why_title")}
+                alt={img1Alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -79,9 +93,9 @@ export default function AboutSection({ bg }) {
               <div className="flex items-start gap-3">
                 <VscDebugBreakpointLog className="text-(--main-color) text-xl mt-1 shrink-0" />
                 <div>
-                  <h4 className="text-sm font-black text-(--primary-color) mb-1">
+                  <h3 className="text-sm font-black text-(--primary-color) mb-1">
                     {t("feature_1_title")}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-500 font-medium leading-relaxed">
                     {t("feature_1_desc")}
                   </p>
@@ -91,9 +105,9 @@ export default function AboutSection({ bg }) {
               <div className="flex items-start gap-3">
                 <VscDebugBreakpointLog className="text-(--main-color) text-xl mt-1 shrink-0" />
                 <div>
-                  <h4 className="text-sm font-black text-(--primary-color) mb-1">
+                  <h3 className="text-sm font-black text-(--primary-color) mb-1">
                     {t("feature_2_title")}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-500 font-medium leading-relaxed">
                     {t("feature_2_desc")}
                   </p>
@@ -103,9 +117,9 @@ export default function AboutSection({ bg }) {
               <div className="flex items-start gap-3">
                 <VscDebugBreakpointLog className="text-(--main-color) text-xl mt-1 shrink-0" />
                 <div>
-                  <h4 className="text-sm font-black text-(--primary-color) mb-1">
+                  <h3 className="text-sm font-black text-(--primary-color) mb-1">
                     {t("feature_3_title")}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-500 font-medium leading-relaxed">
                     {t("feature_3_desc")}
                   </p>
@@ -119,7 +133,7 @@ export default function AboutSection({ bg }) {
               <div className="relative w-full h-full overflow-hidden">
                 <Image
                   src="/about-03.jpg"
-                  alt={t("history_title")}
+                  alt={img2Alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="transition-transform duration-700 group-hover:scale-105 object-cover"
@@ -134,10 +148,11 @@ export default function AboutSection({ bg }) {
               <div className="relative w-full h-full overflow-hidden">
                 <Image
                   src="/hero01.webp"
-                  alt={t("history_title")}
+                  alt={img3Alt}
                   fill
                   sizes="(max-width: 1024px) 50vw, 20vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
               </div>
             </div>

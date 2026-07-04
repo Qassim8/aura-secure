@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useTranslations, useLocale } from "next-intl";
-import { MdVerified, MdHandshake, MdFileDownload } from "react-icons/md";
+import { MdVerified, MdFileDownload } from "react-icons/md";
 
 // Swiper Styles
 import "swiper/css";
@@ -43,6 +43,16 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen w-full">
+      {/* 
+        H1 المخفي للسيو الحقيقي للموقع: 
+        هذا يضمن لقوقل فهم تخصص الموقع فوراً دون تشتيته بتكرار السلايدر 
+      */}
+      <h1 className="sr-only">
+        {locale === "ar"
+          ? "أوراسيكيور لأنظمة الأمن والسلامة ومكافحة الحرائق بالمملكة العربية السعودية"
+          : "OraSecure for Fire Safety, Fighting & Security Systems KSA"}
+      </h1>
+
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         loop={true}
@@ -66,6 +76,7 @@ export default function HeroSection() {
               />
               <div className="absolute inset-0 bg-(--primary-color)/60" />
             </div>
+
             {/* Content */}
             <div className={`container h-full relative z-20 text-white `}>
               <div className="flex flex-col justify-center items-start text-start h-full md:w-1/2">
@@ -77,10 +88,13 @@ export default function HeroSection() {
                   </span>
                 </div>
 
-                {/* Main Title */}
-                <h1 className="text-3xl md:text-6xl font-semibold md:font-black leading-tight tracking-tighter uppercase">
+                {/* 
+                  تم تعديلها من h1 إلى h2 لمنع تكرار الـ H1 داخل السلايدر، 
+                  مما يمنح موقعك بنية سليمة 100% في قوقل
+                */}
+                <h2 className="text-3xl md:text-6xl font-semibold md:font-black leading-tight tracking-tighter uppercase">
                   {slide.title}
-                </h1>
+                </h2>
 
                 <p className="text-base md:text-lg my-5 text-(--main-color) drop-shadow-[0_0_10px_rgba(230,26,43,0.8)]">
                   {slide.subTitle}
