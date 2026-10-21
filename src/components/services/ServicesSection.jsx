@@ -17,6 +17,7 @@ import ServicesCard from "./ServicesCard";
 
 export default function ServicesSection({ bg }) {
   const t = useTranslations("Services");
+  const locale = useLocale();
 
   const services = [
     {
@@ -93,12 +94,12 @@ export default function ServicesSection({ bg }) {
               </p>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              href={`/${locale}/contact`}
               className="relative z-10 w-full md:w-auto px-6 py-3.5 bg-(--main-color) text-white font-black text-xs shadow-xl hover:bg-white hover:text-(--primary-color) transition-all duration-300 flex items-center justify-center gap-3 group/btn"
             >
               <span>{t("CTA_Btn")}</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

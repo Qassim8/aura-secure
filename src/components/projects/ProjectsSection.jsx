@@ -151,12 +151,8 @@ export default function ProjectsSection({ bg, isPage = false }) {
           layout
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px] ${isPage ? "mt-6" : "mt-16"}`}
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout" initial={false}>
             {displayedProjects.map((project) => {
-              const projectAlt = isRtl
-                ? `تنفيذ وتصميم ${project.title} - أنظمة السلامة ومكافحة الحرائق بالسعودية من أوراسيكيور`
-                : `${project.title} Execution - Fire Safety & Fighting Systems KSA by OraSecure`;
-
               return (
                 <motion.div
                   layout
@@ -170,7 +166,8 @@ export default function ProjectsSection({ bg, isPage = false }) {
                   <div className="block w-full h-full relative z-10">
                     <Image
                       src={project.img}
-                      alt={projectAlt}
+                      /* صور توضيحية مؤقتة وليست صوراً فعلية للمشروع؛ العنوان ظاهر في h3 */
+                      alt=""
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       loading="lazy"

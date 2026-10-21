@@ -32,7 +32,7 @@ export default function AboutClient() {
     itemListElement: breadcrumbsData.map((b, i) => {
       const absoluteUrl = b.url.startsWith("http")
         ? b.url
-        : `${SITE_URL}${b.url === "/" ? "" : b.url}`;
+        : `${SITE_URL}/${locale}${b.url === "/" ? "" : b.url}`;
 
       return {
         "@type": "ListItem",
@@ -52,7 +52,7 @@ export default function AboutClient() {
       />
 
       {/* 5. عرض الترويسة البصرية للمستخدمين */}
-      <PageHeader title={t("section_tag")} breadcrumbs={breadcrumbsData} />
+      <PageHeader title={t("section_title")} breadcrumbs={breadcrumbsData} />
 
       <AboutSection bg="white" />
       <VisionMissionSection bg="bg-(--second-color)" />

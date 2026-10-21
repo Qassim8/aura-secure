@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useTranslations, useLocale } from "next-intl";
@@ -13,31 +14,27 @@ import Link from "next/link";
 export default function HeroSection() {
   const t = useTranslations("Hero");
   const locale = useLocale();
-  const [dir, setDir] = useState("ltr");
-
-  useEffect(() => {
-    const currentDir = document.documentElement.dir || "ltr";
-    setDir(currentDir);
-  }, []);
+  // الصورة تُحدَّد من اللغة مباشرة أثناء العرض من الخادم، فلا تُحمَّل نسخة خاطئة ثم تُستبدل
+  const suffix = locale === "ar" ? "" : "-en";
 
   const slides = [
     {
       id: 1,
       title: t("title1"),
       subTitle: t("subTitle1"),
-      image: `${dir === "rtl" ? "./hero-1.webp" : "./hero-1-en.webp"}`,
+      image: `/hero-1${suffix}.webp`,
     },
     {
       id: 2,
       title: t("title2"),
       subTitle: t("subTitle2"),
-      image: `${dir === "rtl" ? "./hero-2.webp" : "./hero-2-en.webp"}`,
+      image: `/hero-2${suffix}.webp`,
     },
     {
       id: 3,
       title: t("title3"),
       subTitle: t("subTitle3"),
-      image: `${dir === "rtl" ? "./hero-3.webp" : "./hero-3-en.webp"}`,
+      image: `/hero-3${suffix}.webp`,
     },
   ];
 
@@ -66,13 +63,17 @@ export default function HeroSection() {
         }}
         className="h-full w-full"
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <SwiperSlide key={slide.id} className="relative h-full">
             {/* Background */}
             <div className="absolute inset-0 z-0">
-              <div
-                className="absolute inset-0 bg-cover bg-center grayscale-90"
-                style={{ backgroundImage: `url('${slide.image}')` }}
+              <Image
+                src={slide.image}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={index === 0}
+                className="object-cover object-center grayscale-90"
               />
               <div className="absolute inset-0 bg-(--primary-color)/60" />
             </div>

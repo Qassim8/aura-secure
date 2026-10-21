@@ -33,7 +33,7 @@ export default function ContactClient() {
     itemListElement: breadcrumbsData.map((b, i) => {
       const absoluteUrl = b.url.startsWith("http")
         ? b.url
-        : `${SITE_URL}${b.url === "/" ? "" : b.url}`;
+        : `${SITE_URL}/${locale}${b.url === "/" ? "" : b.url}`;
 
       return {
         "@type": "ListItem",
@@ -53,7 +53,7 @@ export default function ContactClient() {
       />
 
       {/* 5. استدعاء المكون البصري المحدث */}
-      <PageHeader title={t("Contact_1")} breadcrumbs={breadcrumbsData} />
+      <PageHeader title={t("page_h1")} breadcrumbs={breadcrumbsData} />
       <ContactInfo />
       <ContactSection bg={"bg-(--second-color)"} />
     </main>

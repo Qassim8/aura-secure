@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import MainTitle from "../base/MainTitle";
 import FAQ from "./FAQ";
 import Form from "./Form";
-import { faqSchema } from "@/lib/seo";
+import { faqSchema } from "@/lib/faq";
 
 export default function ContactSection({ bg }) {
   const t = useTranslations("Contact");

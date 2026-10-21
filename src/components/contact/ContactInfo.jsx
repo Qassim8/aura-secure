@@ -7,7 +7,6 @@ import {
   MdAccessTime,
   MdArrowOutward,
 } from "react-icons/md";
-import { SITE_URL } from "@/lib/url";
 
 export default function ContactInfo() {
   const t = useTranslations("Contact");
@@ -15,7 +14,6 @@ export default function ContactInfo() {
   const isRtl = locale === "ar";
 
   // النطاق الرسمي والموقع الثابت لبيانات الـ Local SEO
-  const DOMAIN_URL = SITE_URL; // استبدل بـ URL موقعك الرسمي
   const phoneNumber = "+966570114100";
 
   const formatNumber = (num) => {
@@ -23,30 +21,7 @@ export default function ContactInfo() {
     return `\u202D${num.replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d])}\u202C`;
   };
 
-  // 📝 بناء LocalBusiness Schema لجوجل لرفع أداء السيو المحلي
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: isRtl ? "أوراسيكيور لأنظمة السلامة" : "OraSecure Safety Systems",
-    image: `${DOMAIN_URL}/logo.png`,
-    "@id": `${DOMAIN_URL}/#localbusiness`,
-    url: DOMAIN_URL,
-    telephone: phoneNumber,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: t("info_location_desc"),
-      addressCountry: "SA",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-        opens: "08:00",
-        closes: "17:00",
-      },
-    ],
-  };
-
+  // بيانات LocalBusiness المنظمة تُولَّد مرة واحدة في StructuredData (layout)
   const infoCards = [
     {
       id: "location",
@@ -54,7 +29,7 @@ export default function ContactInfo() {
       title: t("info_location_title"),
       desc: <p>{t("info_location_desc")}</p>,
       actionLabel: isRtl ? "توجيهات السير" : "Get Directions",
-      link: "https://maps.google.com/?q=OraSecure", // يفضل وضع رابط الخريطة الفعلي هنا
+      link: "https://maps.google.com/?cid=13945110189189153823",
     },
     {
       id: "phones",
@@ -84,14 +59,6 @@ export default function ContactInfo() {
 
   return (
     <section className="py-20 bg-white">
-      {/* حقن بيانات السيو المحلي في الهيكل البرمجي للصفحة */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
-      />
-
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-12 items-stretch">
           {/* تحويل الحاوية إلى وsum address دلالي قياسي لبيانات الاتصال */}

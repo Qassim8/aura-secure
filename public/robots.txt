@@ -1,6 +1,0 @@
-User-agent: *
-
-Allow: /
-
-Sitemap: https://www.orasecure.com.sa/sitemap.xml
-Host: www.orasecure.com.sa

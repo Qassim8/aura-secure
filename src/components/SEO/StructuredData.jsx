@@ -7,7 +7,7 @@ const SERVICES_DATA = {
     "fire-alarm-systems": {
       name: "أنظمة إنذار الحريق (Fire Alarm Systems)",
       description:
-        "توفر أوراسيكيور حلولاً متكاملة لأنظمة إنذار الحريق المصممة لاكتشاف الحرائق في مراحلها المبكرة وتقليل المخاطر على الأرواح والممتلكات. نعتمد على أحدث التقنيات وأجهزة الكشف الذكية لضمان الاستجابة السريعة والتنبيه الفوري عند حدوث أي خطر. تشمل خدماتنا دراسة الموقع، التصميم الهندسي، التوريد، التركيب، الاختبار، والتشغيل وفق متمتطلبات الدفاع المدني السعودي والمعايير العالمية المعتمدة. يتم تنفيذ المشاريع بواسطة فريق متخصص لضمان أعلى مستويات الجودة والسلامة.",
+        "توفر أوراسيكيور حلولاً متكاملة لأنظمة إنذار الحريق المصممة لاكتشاف الحرائق في مراحلها المبكرة وتقليل المخاطر على الأرواح والممتلكات. نعتمد على أحدث التقنيات وأجهزة الكشف الذكية لضمان الاستجابة السريعة والتنبيه الفوري عند حدوث أي خطر. تشمل خدماتنا دراسة الموقع، التصميم الهندسي، التوريد، التركيب، الاختبار، والتشغيل وفق متطلبات الدفاع المدني السعودي والمعايير العالمية المعتمدة. يتم تنفيذ المشاريع بواسطة فريق متخصص لضمان أعلى مستويات الجودة والسلامة.",
     },
     "fire-fighting-systems": {
       name: "أنظمة مكافحة وإطفاء الحريق (Fire Fighting Systems)",
@@ -68,98 +68,62 @@ export default function StructuredData({
   const siteUrl = SITE_URL;
 
   // 1. LOCAL BUSINESS & ORGANIZATION SCHEMA
+  // كل القيم هنا مطابقة لما يظهر للزائر في صفحة التواصل والتذييل (العنوان، الهاتف، ساعات العمل)
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#organization`,
     name:
       locale === "ar"
-        ? "أوراسيكيور لأنظمة الامان والسلامة"
+        ? "أوراسيكيور لأنظمة الأمان والسلامة"
         : "Ora Secure for Security and Safety Systems",
-    alternateName: ["ORA Secure", "أوراسيكيور"],
-    url: siteUrl,
-    logo: `${siteUrl}/icon.png`,
-    image: `${siteUrl}/og-image-home.png`,
+    alternateName: ["OraSecure", "ORA Secure", "أوراسيكيور", "أورا سيكيور"],
+    url: `${siteUrl}/${locale}`,
+    logo: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/og-image.jpg`,
     description:
       locale === "ar"
         ? "أوراسيكيور: شركة معتمدة من الدفاع المدني السعودي لتصميم وتوريد وتركيب وصيانة أنظمة الأمن والسلامة، إنذار وإطفاء الحريق، وكاميرات المراقبة بأعلى معايير الجودة."
         : "Ora Secure: A Saudi Civil Defense certified company specializing in the design, supply, installation, and maintenance of fire alarm, firefighting, and CCTV security systems.",
     telephone: "+966570114100",
     email: "info@orasecure.com.sa",
-    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      addressCountry: "SA",
-      addressRegion: locale === "ar" ? "الرياض" : "Riyadh",
+      streetAddress:
+        locale === "ar"
+          ? "حي الخالدية، تقاطع شارع الأمير محمد بن عبد الرحمن مع طريق الخرج"
+          : "Al-Khalidiyah district, intersection of Prince Mohammed bin Abdulrahman Street and Al-Kharj Road",
       addressLocality: locale === "ar" ? "الرياض" : "Riyadh",
+      addressRegion: locale === "ar" ? "منطقة الرياض" : "Riyadh Province",
+      addressCountry: "SA",
     },
+    hasMap: "https://maps.google.com/?cid=13945110189189153823",
     areaServed: {
       "@type": "Country",
       name: locale === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia",
     },
     availableLanguage: ["Arabic", "English"],
-    openingHours: "Su-Th 08:00-18:00",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        opens: "08:00",
+        closes: "17:00",
+      },
+    ],
     sameAs: [
       "https://www.linkedin.com/company/orasecure",
       "https://twitter.com/orasecure",
+      "https://instagram.com/orasecure",
     ],
     contactPoint: [
       {
         "@type": "ContactPoint",
         telephone: "+966570114100",
+        email: "info@orasecure.com.sa",
         contactType: "customer service",
         areaServed: "SA",
         availableLanguage: ["Arabic", "English"],
-      },
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9", // متوسط التقييم الإجمالي للموقع
-      reviewCount: "24", // إجمالي عدد العملاء الذين قيموا الشركة
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: [
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "سارة القحطاني",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        reviewBody:
-          "من أفضل الشركات التي تعاملنا معها في تنفيذ مخططات السلامة. دقة في التفاصيل وفهم عميق لكود البناء السعودي.",
-      },
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "المهندس عبد العزيز الرويلي",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        reviewBody:
-          "تم تصميم وتركيب شبكة إطفاء متكاملة لمستودعاتنا بدقة متناهية. الالتزام بمعايير السلامة العالمية وسرعة الاستجابة جعلتهم خيارنا الأول دائماً.",
-      },
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "د. نورة الشمري",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        reviewBody: "تجربة ممتازة واحترافية في التعامل والالتزام بالمواعيد.",
       },
     ],
   };
@@ -169,8 +133,8 @@ export default function StructuredData({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    url: siteUrl,
-    name: "Ora Secure",
+    url: `${siteUrl}/${locale}`,
+    name: locale === "ar" ? "أوراسيكيور" : "OraSecure",
     inLanguage: locale === "ar" ? "ar-SA" : "en-US",
     publisher: {
       "@id": `${siteUrl}/#organization`,
@@ -217,79 +181,16 @@ export default function StructuredData({
           "@type": "Country",
           name: locale === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia",
         },
-        // 🛠️ تحديث الـ provider لحل المشاكل الأربعة وتضمين البيانات بالكامل
         provider: {
-          "@type": "LocalBusiness",
           "@id": `${siteUrl}/#organization`,
-          name:
-            locale === "ar"
-              ? "أوراسيكيور لأنظمة السلامة"
-              : "OraSecure Safety Systems",
-          url: siteUrl,
-          telephone: "+966570114100", // حل تنبيه الهاتف
-          priceRange: "$$", // حل تنبيه النطاق السعري
-          image: `${siteUrl}/logo.png`, // حل تنبيه الصورة (تأكد من وجود شعار بهذا المسار)
-          address: {
-            // حل تنبيه العنوان
-            "@type": "PostalAddress",
-            addressCountry: "SA",
-            addressRegion: locale === "ar" ? "الرياض" : "Riyadh",
-          },
         },
         brand: {
           "@type": "Brand",
           name: "Ora Secure",
         },
-        availableChannel: {
-          "@type": "ServiceChannel",
-          serviceUrl: `${siteUrl}/${locale}/services/${serviceSlug}`,
-        },
+        url: `${siteUrl}/${locale}/services/${serviceSlug}`,
       }
     : null;
-
-  // 5. FAQ SCHEMA
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity:
-      locale === "ar"
-        ? [
-            {
-              "@type": "Question",
-              name: "ما الخدمات التي تقدمها شركة أوراسيكيور؟",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "تقدم أوراسيكيور خدمات أنظمة إنذار الحريق، أنظمة الإطفاء، كاميرات المراقبة، التحكم بالدخول، وعقود الصيانة المعتمدة من الدفاع المدني في المملكة العربية السعودية.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "هل أنظمة أوراسيكيور متوافقة مع اشتراطات الدفاع المدني السعودي؟",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "نعم، جميع الأنظمة والحلول الهندسية التي نقدمها يتم تنفيذها واعتمادها وفق اشتراطات الدفاع المدني السعودي والمعايير العالمية (NFPA).",
-              },
-            },
-          ]
-        : [
-            {
-              "@type": "Question",
-              name: "What services does Ora Secure provide?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Ora Secure provides fire alarm systems, fire suppression systems, CCTV surveillance, access control systems, and engineering maintenance contracts across Saudi Arabia.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Are Ora Secure systems compliant with Saudi Civil Defense regulations?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Yes, all our systems and engineering solutions comply strictly with Saudi Civil Defense requirements and NFPA international standards.",
-              },
-            },
-          ],
-  };
 
   const scripts = [];
 
@@ -298,7 +199,7 @@ export default function StructuredData({
   if (type === "all" || type === "website") scripts.push(websiteSchema);
   if (breadcrumbSchema) scripts.push(breadcrumbSchema);
   if (serviceSchema) scripts.push(serviceSchema);
-  if (type === "all" || type === "service") scripts.push(faqSchema);
+  // FAQPage يُولَّد مرة واحدة فقط من ContactSection بمحتوى مطابق للأسئلة الظاهرة
 
   return (
     <>

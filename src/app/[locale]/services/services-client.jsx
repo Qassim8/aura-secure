@@ -30,7 +30,7 @@ export default function ServicesClient() {
     itemListElement: breadcrumbsData.map((b, i) => {
       const absoluteUrl = b.url.startsWith("http")
         ? b.url
-        : `${SITE_URL}${b.url === "/" ? "" : b.url}`;
+        : `${SITE_URL}/${locale}${b.url === "/" ? "" : b.url}`;
 
       return {
         "@type": "ListItem",
@@ -50,7 +50,7 @@ export default function ServicesClient() {
       />
 
       {/* 5. استدعاء المكون البصري المحدث */}
-      <PageHeader title={t("Services_1")} breadcrumbs={breadcrumbsData} />
+      <PageHeader title={t("page_h1")} breadcrumbs={breadcrumbsData} />
 
       <ServicesSection bg="bg-white" />
       <ServicesCTAWithMap />

@@ -35,14 +35,13 @@ export const viewport = {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const baseMetadata = await generatePageMetadata("home", locale, SITE_URL);
+  const home = generatePageMetadata("home", locale, SITE_URL);
+  // قيم افتراضية فقط؛ كل صفحة تحدد canonical وhreflang الخاصة بها.
+  // الأيقونات تُولَّد تلقائياً من src/app/icon.png وapple-icon.png وfavicon.ico
   return {
-    ...baseMetadata,
-    icons: {
-      icon: "/icon.png",
-      shortcut: "/favicon.ico",
-      apple: "/apple-icon.png", // يفضل إضافتها لمتصفحات آبل
-    },
+    metadataBase: home.metadataBase,
+    title: home.title,
+    description: home.description,
   };
 }
 

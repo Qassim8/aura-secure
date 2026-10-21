@@ -145,7 +145,7 @@ export const seoData = {
         "شركة متخصصة في حلول الأمن والسلامة المعتمدة لحماية المنشآت والأفراد في المملكة العربية السعودية.",
     },
     services: {
-      title: "خدماتنا | تركيب وصيانة أنظمة الحريق والأمن",
+      title: "خدمات الأمن والسلامة | تركيب وصيانة أنظمة الحريق - أوراسيكيور",
       description:
         "اكتشف خدمات أوراسيكيور في تصميم وتركيب وصيانة أنظمة إنذار الحريق، أنظمة الإطفاء، كاميرات المراقبة، التحكم بالدخول، ومخططات السلامة المعتمدة في السعودية.",
       keywords: [
@@ -200,6 +200,60 @@ export const seoData = {
 };
 
 // ===============================
+// SHARED HELPERS
+// ===============================
+
+export const LOCALES = ["ar", "en"];
+export const DEFAULT_LOCALE = "ar";
+
+export const SERVICE_IDS = [
+  "fire-alarm-systems",
+  "fire-fighting-systems",
+  "maintenance-contracts",
+  "cctv-security-systems",
+  "safety-plans-engineering",
+];
+
+const OG_IMAGE = {
+  url: "/og-image.jpg",
+  width: 1200,
+  height: 630,
+};
+
+// path بدون بادئة اللغة، مثل "" للرئيسية أو "/about"
+export function buildAlternates(path, locale) {
+  return {
+    canonical: `/${locale}${path}`,
+    languages: {
+      ar: `/ar${path}`,
+      en: `/en${path}`,
+      "x-default": `/${DEFAULT_LOCALE}${path}`,
+    },
+  };
+}
+
+function buildSocial({ type, locale, path, title, description }) {
+  return {
+    openGraph: {
+      type,
+      locale: locale === "ar" ? "ar_SA" : "en_US",
+      alternateLocale: locale === "ar" ? "en_US" : "ar_SA",
+      url: `/${locale}${path}`,
+      title,
+      description,
+      images: [{ ...OG_IMAGE, alt: title }],
+      siteName: locale === "ar" ? "أوراسيكيور" : "OraSecure",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE.url],
+    },
+  };
+}
+
+// ===============================
 // PAGE METADATA GENERATOR
 // ===============================
 
@@ -209,7 +263,7 @@ export function generatePageMetadata(
   siteUrl = SITE_URL,
 ) {
   const pageData = seoData[locale]?.[pageKey] || seoData.en[pageKey];
-  const pagePath = pageKey === "home" ? `/${locale}` : `/${locale}/${pageKey}`;
+  const path = pageKey === "home" ? "" : `/${pageKey}`;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -220,36 +274,14 @@ export function generatePageMetadata(
       index: true,
       follow: true,
     },
-    alternates: {
-      canonical: pagePath,
-      languages: {
-        ar: `/ar${pageKey === "home" ? "" : `/${pageKey}`}`,
-        en: `/en${pageKey === "home" ? "" : `/${pageKey}`}`,
-      },
-    },
-    openGraph: {
+    alternates: buildAlternates(path, locale),
+    ...buildSocial({
       type: "website",
-      locale: locale === "ar" ? "ar_SA" : "en_US",
-      url: `${siteUrl}${pagePath}`,
+      locale,
+      path,
       title: pageData.ogTitle || pageData.title,
       description: pageData.ogDescription || pageData.description,
-      images: [
-        {
-          url: `${siteUrl}/og-image-${pageKey}.png`,
-          width: 1200,
-          height: 630,
-          alt: pageData.ogTitle || pageData.title,
-        },
-      ],
-      siteName: "OraSecure",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: pageData.ogTitle || pageData.title,
-      description: pageData.ogDescription || pageData.description,
-      images: [`${siteUrl}/og-image-${pageKey}.png`],
-      creator: "@orasecure",
-    },
+    }),
   };
 }
 
@@ -321,7 +353,7 @@ export function generateServiceMetadata(
 
     ar: {
       "fire-alarm-systems": {
-        title: "تركيب صيانة أنظمة إنذار الحريق | أوراسيكيور السعودية",
+        title: "تركيب وصيانة أنظمة إنذار الحريق | أوراسيكيور السعودية",
         description:
           "تصميم وتوريد وتركيب وصيانة أنظمة إنذار الحريق المبكر وكواشف الدخان المعتمدة وفق اشتراطات الدفاع المدني السعودي ومعايير NFPA العالمية.",
         keywords: [
@@ -352,7 +384,7 @@ export function generateServiceMetadata(
           "عقود الصيانة والامان",
           "عقود صيانة دفاع مدني",
           "صيانة انظمة انذار الحرائق الدورية",
-          "عقد صيانة شبكات حريق حراج",
+          "عقد صيانة شبكات الحريق",
         ],
       },
       "cctv-security-systems": {
@@ -380,82 +412,32 @@ export function generateServiceMetadata(
     },
   };
 
-  const localeMeta = servicesMeta[locale] || servicesMeta.en;
-  const meta = localeMeta[serviceId] || {
-    title: "OraSecure Services",
-    description:
-      "OraSecure provides integrated fire safety and security solutions.",
-    keywords: ["OraSecure", "fire protection"],
-  };
+  const meta = (servicesMeta[locale] || servicesMeta.en)[serviceId];
+
+  // خدمة غير معروفة: الصفحة نفسها ستعيد 404
+  if (!meta) return null;
+
+  const path = `/services/${serviceId}`;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    robots: "index, follow",
-    openGraph: {
-      type: "article",
-      locale: locale === "ar" ? "ar_SA" : "en_US",
-      url: `${siteUrl}/${locale}/services/${serviceId}`,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: buildAlternates(path, locale),
+    ...buildSocial({
+      type: "website",
+      locale,
+      path,
       title: meta.title,
       description: meta.description,
-      images: [
-        {
-          url: `${siteUrl}/og-service-${serviceId}.png`,
-          width: 1200,
-          height: 630,
-          alt: meta.title,
-        },
-      ],
-      siteName: "OraSecure",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: meta.title,
-      description: meta.description,
-      images: [`${siteUrl}/og-service-${serviceId}.png`],
-    },
+    }),
   };
 }
 
-// ===============================
-// FAQ SCHEMA
-// ===============================
-
-export const faqSchema = {
-  en: [
-    {
-      question: "What services does OraSecure provide?",
-      answer:
-        "OraSecure provides fire alarm systems, fire suppression systems, CCTV surveillance, access control systems, maintenance contracts, and integrated safety engineering solutions across Saudi Arabia.",
-    },
-    {
-      question:
-        "Are your systems compliant with Saudi Civil Defense requirements?",
-      answer:
-        "Yes, all our systems and engineering solutions comply with Saudi Civil Defense regulations and international safety standards.",
-    },
-    {
-      question: "Do you provide periodic maintenance contracts?",
-      answer:
-        "Yes, we offer preventive and corrective maintenance contracts to ensure maximum operational efficiency and system readiness.",
-    },
-  ],
-  ar: [
-    {
-      question: "ما الخدمات التي تقدمها أوراسيكيور؟",
-      answer:
-        "تقدم أوراسيكيور خدمات أنظمة إنذار الحريق، أنظمة الإطفاء، كاميرات المراقبة، التحكم بالدخول، عقود الصيانة، والحلول الهندسية المتكاملة للأمن والسلامة في المملكة العربية السعودية.",
-    },
-    {
-      question: "هل الأنظمة متوافقة مع اشتراطات الدفاع المدني السعودي？",
-      answer:
-        "نعم، جميع الأنظمة والحلول الهندسية يتم تنفيذها وفق اشتراطات الدفاع المدني السعودي والمعايير العالمية المعتمدة.",
-    },
-    {
-      question: "هل توفرون عقود صيانة دورية？",
-      answer:
-        "نعم، نوفر عقود صيانة وقائية وعلاجية لضمان جاهزية الأنظمة واستمرارية عملها بأعلى كفاءة.",
-    },
-  ],
-};
+// FAQ SCHEMA: في ملف منفصل حتى لا تُحمَّل بيانات السيو كاملة في حزمة المتصفح
+export { faqSchema } from "./faq";

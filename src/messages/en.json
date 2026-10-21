@@ -50,6 +50,7 @@
     "mission_text": "Deliver integrated, code-compliant safety systems with professional engineering, timely execution, and ongoing support to protect people and assets."
   },
   "Services": {
+    "page_h1": "Fire Safety & Security Services",
     "Services_1": "Our Services",
     "Services_2": "Integrated Safety Solutions with the Latest Standards",
     "Services_3": "04",
@@ -96,6 +97,7 @@
     "Stats_10": "Nationwide coverage"
   },
   "Projects": {
+    "page_h1": "Fire Safety & Security Projects",
     "Project_1": "Our Work",
     "Projects_1": "Our track record",
     "Projects_2": "Approved Ora Secure projects",
@@ -155,6 +157,7 @@
     "T5_Text": "Upgrading the fire alarm system and developing the emergency exits was executed with the highest level of professionalism without disrupting the hospital's daily operations. Highly grateful."
   },
   "Contact": {
+    "page_h1": "Contact OraSecure",
     "Contact_1": "Contact Us",
     "Contact_2": "Have a question? We are here to answer and assist you immediately",
     "info_location_title": "Headquarters & Location",

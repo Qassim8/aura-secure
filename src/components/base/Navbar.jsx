@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { MdMenu, MdClose } from "react-icons/md";
 import { RiGlobalLine } from "react-icons/ri";
 import Image from "next/image";
@@ -12,7 +12,6 @@ import TopBar from "./TopBar";
 export default function HeaderNavbar() {
   const t = useTranslations("Navbar");
   const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
@@ -29,12 +28,11 @@ export default function HeaderNavbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleLanguage = () => {
-    const nextLocale = locale === "ar" ? "en" : "ar";
-    const segments = pathname.split("/");
-    segments[1] = nextLocale;
-    router.push(segments.join("/"));
-  };
+  // رابط حقيقي (<a href>) للنسخة المقابلة حتى تكتشفها محركات البحث
+  const nextLocale = locale === "ar" ? "en" : "ar";
+  const switchSegments = (pathname || `/${locale}`).split("/");
+  switchSegments[1] = nextLocale;
+  const switchHref = switchSegments.join("/");
 
   const links = [
     { key: "home", href: `/${locale}` },
@@ -105,14 +103,15 @@ export default function HeaderNavbar() {
 
             {/* تبديل اللغة لسطح المكتب */}
             <div className="hidden md:flex items-center gap-3">
-              <button
-                onClick={toggleLanguage}
-                type="button"
+              <Link
+                href={switchHref}
+                hrefLang={nextLocale}
+                lang={nextLocale}
                 className="cursor-pointer transition-all flex items-center gap-2 text-(--primary-color) text-sm font-medium focus:outline-hidden"
               >
                 <RiGlobalLine className="text-lg" aria-hidden="true" />
                 <span>{locale === "ar" ? "English" : "العربية"}</span>
-              </button>
+              </Link>
             </div>
 
             {/* زر القائمة للهواتف مع دعم الـ Accessibility والوصول المكافئ للـ DOM */}
@@ -174,9 +173,11 @@ export default function HeaderNavbar() {
             </div>
 
             <div className="p-4 border-t border-black/5 flex flex-col gap-3">
-              <button
-                onClick={toggleLanguage}
-                type="button"
+              <Link
+                href={switchHref}
+                hrefLang={nextLocale}
+                lang={nextLocale}
+                onClick={() => setMobileOpen(false)}
                 tabIndex={mobileOpen ? 0 : -1}
                 className="h-12 bg-black/10 text-(--primary-color) font-medium flex items-center justify-center gap-1 focus:outline-hidden"
               >
@@ -184,7 +185,7 @@ export default function HeaderNavbar() {
                 <span>
                   {locale === "ar" ? "Switch to English" : "التبديل للعربية"}
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

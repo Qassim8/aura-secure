@@ -12,7 +12,6 @@ import { LuBadgeCheck, LuBuilding2 } from "react-icons/lu";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import ServicesCTA from "@/components/services/ServicesCTAWithMap";
 import PageHeader from "@/components/base/Breadcrumb";
-import { SITE_URL } from "@/lib/url";
 
 export default function ServiceDetailClient() {
   const params = useParams();
@@ -20,8 +19,6 @@ export default function ServiceDetailClient() {
   const t = useTranslations("Services");
   const id = params.id;
   const isRtl = locale === "ar";
-
-  const DOMAIN_URL = SITE_URL;
 
   const services = [
     {
@@ -94,7 +91,7 @@ export default function ServiceDetailClient() {
 
   if (!service) return null;
 
-  // 1. مصفوفة البريد كرمب الموحدة للهيكل الجديد
+  // البيانات المنظمة (BreadcrumbList + Service) تُولَّد من الخادم في page.jsx
   const breadcrumbsData = [
     {
       name: isRtl ? "الرئيسية" : "Home",
@@ -110,48 +107,8 @@ export default function ServiceDetailClient() {
     },
   ];
 
-  // 2. بناء سكيما مزدوجة (BreadcrumbList + Service Schema) لتعظيم قوة الصفحة في النتائج
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbsData.map((b, i) => {
-      const absoluteUrl = b.url.startsWith("http")
-        ? b.url
-        : `${DOMAIN_URL}${b.url === "/" ? "" : b.url}`;
-      return {
-        "@type": "ListItem",
-        position: i + 1,
-        name: b.name,
-        item: absoluteUrl,
-      };
-    }),
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.desc,
-    provider: {
-      "@type": "LocalBusiness",
-      name: isRtl ? "أوراسيكيور لأنظمة السلامة" : "OraSecure Safety Systems",
-      url: DOMAIN_URL,
-    },
-    areaServed: "SA",
-  };
-
   return (
     <article>
-      {/* حقن البيانات المنظمة الثنائية لجوجل */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-
       {/* البريد كرمب والترويسة المحدثة */}
       <PageHeader title={service.title} breadcrumbs={breadcrumbsData} />
 
@@ -194,7 +151,11 @@ export default function ServiceDetailClient() {
         <div className="container mx-auto px-6">
           <MainTitle
             title={t("Services_1")}
-            subtitle={isRtl ? "ماذا تشمل هذه الخدمة؟" : "What’s Included?"}
+            subtitle={
+              isRtl
+                ? `ماذا تشمل خدمة ${service.title}؟`
+                : `What’s Included in ${service.title}?`
+            }
           />
 
           {/* تحويل قائمة الميزات إلى هيكلية متوافقة مع السيو وقارئات الشاشة */}
@@ -285,6 +246,47 @@ export default function ServiceDetailClient() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* RELATED SERVICES: روابط داخلية بين صفحات الخدمات */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <MainTitle
+            title={t("Services_1")}
+            subtitle={isRtl ? "خدمات أخرى قد تهمك" : "Other Services You May Need"}
+          />
+
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px mt-14 border border-slate-200 bg-black/10 list-none p-0">
+            {services
+              .filter((s) => s.id !== service.id)
+              .map((s) => (
+                <li key={s.id} className="bg-white">
+                  <Link
+                    href={`/${locale}/services/${s.id}`}
+                    className="group h-full p-8 flex flex-col gap-5 hover:bg-(--primary-color) transition-all duration-300 focus:outline-hidden"
+                  >
+                    <span
+                      className="w-14 h-14 border border-(--main-color)/20 bg-(--main-color)/10 text-(--main-color) flex items-center justify-center group-hover:bg-(--main-color) group-hover:text-white transition-all"
+                      aria-hidden="true"
+                    >
+                      {s.icon}
+                    </span>
+                    <span className="text-lg font-black text-(--primary-color) group-hover:text-white transition-colors">
+                      {s.title}
+                    </span>
+                    <span className="mt-auto text-sm font-bold text-(--main-color) group-hover:text-white inline-flex items-center gap-2 transition-colors">
+                      {t("view_more")}
+                      {isRtl ? (
+                        <BsArrowLeft className="w-4 h-4" aria-hidden="true" />
+                      ) : (
+                        <BsArrowRight className="w-4 h-4" aria-hidden="true" />
+                      )}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </section>
 

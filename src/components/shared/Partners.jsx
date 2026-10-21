@@ -39,9 +39,7 @@ export default function PartnersSection({ bg }) {
     { id: "bottom-row", data: row2, isDefaultReverse: true },
   ];
 
-  const altText = isRtl
-    ? "شريك نجاح أوراسيكيور - اعتمادات الدفاع المدني السعودي وكود البناء SBC"
-    : "OraSecure Success Partner - Certified Fire Safety & Protection Systems KSA";
+  const altText = isRtl ? "شعار أحد شركاء أوراسيكيور" : "OraSecure partner logo";
 
   return (
     <section className={`py-14 overflow-hidden select-none relative ${bg}`}>

@@ -19,7 +19,7 @@ export default function ProjectsClient() {
       url: "/",
     },
     {
-      name: isRtl ? "اعمالنا" : "Our Projects",
+      name: isRtl ? "أعمالنا" : "Our Projects",
       url: "/projects",
     },
   ];
@@ -31,7 +31,7 @@ export default function ProjectsClient() {
     itemListElement: breadcrumbsData.map((b, i) => {
       const absoluteUrl = b.url.startsWith("http")
         ? b.url
-        : `${SITE_URL}${b.url === "/" ? "" : b.url}`;
+        : `${SITE_URL}/${locale}${b.url === "/" ? "" : b.url}`;
 
       return {
         "@type": "ListItem",
@@ -51,7 +51,7 @@ export default function ProjectsClient() {
       />
 
       {/* 5. استدعاء المكون البصري المحدث */}
-      <PageHeader title={t("Project_1")} breadcrumbs={breadcrumbsData} />
+      <PageHeader title={t("page_h1")} breadcrumbs={breadcrumbsData} />
       <ProjectsSection isPage={true} />
       <ProcessSection />
       <TestimonialsSection bg="bg-white" />

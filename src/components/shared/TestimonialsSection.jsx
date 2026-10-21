@@ -14,7 +14,6 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { SITE_URL } from "@/lib/url";
 
 export default function TestimonialsSection({ bg }) {
   const t = useTranslations("Testimonials");
@@ -54,43 +53,11 @@ export default function TestimonialsSection({ bg }) {
     },
   ];
 
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: isRtl ? "أوراسيكيور لأنظمة السلامة" : "OraSecure Fire Safety",
-    url: SITE_URL,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5", // التقييم المتوسط بناءً على تقييماتك الكاملة بـ 5 نجوم
-      reviewCount: feedback.length.toString(), // يحسب عدد المراجعات ديناميكياً (5 مراجعات)
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: feedback.map((item) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: item.name,
-      },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      reviewBody: item.text,
-    })),
-  };
-
   return (
     <section
       className={`py-20 ${bg} relative overflow-hidden`}
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
-
       <div className="container mx-auto px-6">
         <MainTitle title={t("Testimonials_1")} subtitle={t("Testimonials_2")} />
 
